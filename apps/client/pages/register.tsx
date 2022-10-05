@@ -1,4 +1,4 @@
-import { TextField } from '@courtside/ui/components';
+import { EmailField, PasswordField, TextField } from '@courtside/ui/components';
 import Image from 'next/image';
 import { useForm } from 'react-hook-form';
 
@@ -52,42 +52,26 @@ export default function Register() {
               />
 
               <div className="col-span-6">
-                <TextField
+                <EmailField
                   htmlFor="Email"
                   label="Email"
-                  {...form.register('lastName')}
+                  {...form.register('email')}
                 />
               </div>
 
               <div className="col-span-6 sm:col-span-3">
-                <label
+                <PasswordField
                   htmlFor="Password"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Password
-                </label>
-
-                <input
-                  type="password"
-                  id="Password"
-                  name="password"
-                  className="mt-1 p-3 border w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                  label="Password"
+                  {...form.register('password')}
                 />
               </div>
 
               <div className="col-span-6 sm:col-span-3">
-                <label
+                <PasswordField
                   htmlFor="PasswordConfirmation"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Password Confirmation
-                </label>
-
-                <input
-                  type="password"
-                  id="PasswordConfirmation"
-                  name="password_confirmation"
-                  className="mt-1 p-3 border w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                  label="Confirm Password"
+                  {...form.register('passwordConfirmation')}
                 />
               </div>
 

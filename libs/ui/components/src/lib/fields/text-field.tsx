@@ -1,11 +1,7 @@
 import { forwardRef } from 'react';
+import { ExtendedInputProps } from './types';
 
-type TextFieldProps = {
-  label: string;
-  htmlFor: string;
-};
-
-export const TextField = forwardRef<HTMLInputElement, TextFieldProps>(
+export const TextField = forwardRef<HTMLInputElement, ExtendedInputProps>(
   ({ label, htmlFor }, ref) => {
     return (
       <div className="col-span-6 sm:col-span-3">
