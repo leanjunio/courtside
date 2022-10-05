@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import { ExtendedInputProps } from './types';
 
 export const TextField = forwardRef<HTMLInputElement, ExtendedInputProps>(
-  ({ label, htmlFor }, ref) => {
+  ({ label, htmlFor, onChange, onBlur, name }, ref) => {
     return (
       <div className="col-span-6 sm:col-span-3">
         <label
@@ -13,6 +13,9 @@ export const TextField = forwardRef<HTMLInputElement, ExtendedInputProps>(
         </label>
 
         <input
+          onChange={onChange}
+          onBlur={onBlur}
+          name={name}
           ref={ref}
           type="text"
           id={htmlFor}

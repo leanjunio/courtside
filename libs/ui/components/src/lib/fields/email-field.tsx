@@ -4,7 +4,7 @@ import { ExtendedInputProps } from './types';
 export const EmailField = React.forwardRef<
   HTMLInputElement,
   ExtendedInputProps
->(({ htmlFor, label }, ref) => {
+>(({ htmlFor, label, onChange, onBlur, name }, ref) => {
   return (
     <div className="col-span-6 sm:col-span-3">
       <label
@@ -15,6 +15,9 @@ export const EmailField = React.forwardRef<
       </label>
 
       <input
+        onChange={onChange}
+        onBlur={onBlur}
+        name={name}
         ref={ref}
         type="email"
         id={htmlFor}
