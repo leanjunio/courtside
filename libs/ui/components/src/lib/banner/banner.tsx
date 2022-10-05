@@ -21,7 +21,7 @@ export function Banner() {
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
               className="block w-full rounded bg-amber-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-amber-700 focus:outline-none focus:ring active:bg-amber-500 sm:w-auto"
-              href="/get-started"
+              href="/register"
             >
               Get Started
             </a>
