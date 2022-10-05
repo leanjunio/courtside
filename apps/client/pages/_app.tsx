@@ -9,8 +9,8 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Welcome to client!</title>
       </Head>
-      <main className="bg-slate-600">
-        <Banner />
+      <main>
+        <Component {...pageProps} />
       </main>
     </>
   );
