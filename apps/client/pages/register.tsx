@@ -14,6 +14,7 @@ export default function Register() {
   const form = useForm<RegisterFields>();
 
   const onSubmit = (data: unknown) => {
+    form.reset();
     console.log(data);
   };
 
