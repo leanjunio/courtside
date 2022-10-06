@@ -16,7 +16,7 @@ export function Banner() {
           </h1>
 
           <p className="mt-4 text-xl sm:leading-relaxed">
-            Share info, communicate, and invite new members your squad within
+            Share info, communicate, and invite new members to your squad within
             one platform
           </p>
 
