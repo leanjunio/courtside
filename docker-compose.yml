@@ -1,0 +1,36 @@
+version: "3.9"
+services:
+  base:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./package.json:/opt/node_app/package.json
+      - ./package-lock.json:/opt/node_app/package-lock.json
+      - notused:/opt/node_app/node_modules
+    working_dir: /app
+    env_file: "./.env"
+    ports:
+      - "3333:3333"
+      - "4200:4200"
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    healthcheck:
+      test: "[ `echo 'db.runCommand(\"ping\").ok' | mongo localhost/example-database --quiet` ] && echo 0 || echo 1"
+      interval: 5s
+      start_period: 10s
+      timeout: 4s
+      retries: 3
+
+volumes:
+  notused:
