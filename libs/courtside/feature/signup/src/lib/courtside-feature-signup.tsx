@@ -1,4 +1,4 @@
-import { EmailField, PasswordField, TextField } from '@courtside/ui/components';
+import { EmailField, PasswordField, TextField } from '@courtside/ui/fields';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
