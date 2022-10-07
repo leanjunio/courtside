@@ -1,5 +1,4 @@
-import { Home } from '@courtside/courtside/feature/home';
-import { Signup } from '@courtside/courtside/feature/signup';
+import { Home, Signup } from '@courtside/courtside/feature';
 import { createBrowserRouter } from 'react-router-dom';
 
 export const router = createBrowserRouter([

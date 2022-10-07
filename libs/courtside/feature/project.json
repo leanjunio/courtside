@@ -1,21 +1,21 @@
 {
-  "name": "courtisde-feature",
+  "name": "courtside-feature",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/courtisde/feature/src",
+  "sourceRoot": "libs/courtside/feature/src",
   "projectType": "library",
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/courtisde/feature/**/*.ts"]
+        "lintFilePatterns": ["libs/courtside/feature/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/courtisde/feature"],
+      "outputs": ["coverage/libs/courtside/feature"],
       "options": {
-        "jestConfig": "libs/courtisde/feature/jest.config.ts",
+        "jestConfig": "libs/courtside/feature/jest.config.ts",
         "passWithNoTests": true
       }
     }
