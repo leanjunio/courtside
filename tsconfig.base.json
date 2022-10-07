@@ -22,6 +22,7 @@
         "libs/courtside/feature/signup/src/index.ts"
       ],
       "@courtside/data-access": ["libs/data-access/src/index.ts"],
+      "@courtside/entities": ["libs/entities/src/index.ts"],
       "@courtside/ui/fields": ["libs/ui/fields/src/index.ts"]
     }
   },
