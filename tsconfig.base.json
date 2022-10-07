@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@courtside/courtside/feature/home": [
+        "libs/courtside/feature/home/src/index.ts"
+      ],
       "@courtside/courtside/feature/signup": [
         "libs/courtside/feature/signup/src/index.ts"
       ],

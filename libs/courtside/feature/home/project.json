@@ -1,0 +1,24 @@
+{
+  "name": "courtside-feature-home",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/courtside/feature/home/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/courtside/feature/home/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/courtside/feature/home"],
+      "options": {
+        "jestConfig": "libs/courtside/feature/home/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}
