@@ -1,6 +1,6 @@
+import { Home } from '@courtside/courtside/feature/home';
 import { Signup } from '@courtside/courtside/feature/signup';
 import { createBrowserRouter } from 'react-router-dom';
-import { Home, Register } from './pages';
 
 export const router = createBrowserRouter([
   {
