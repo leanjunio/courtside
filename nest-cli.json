@@ -1,0 +1,16 @@
+{
+  "projects": {
+    "user": {
+      "type": "library",
+      "root": "libs/entities/user",
+      "entryFile": "index",
+      "sourceRoot": "libs/entities/user/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/entities/user/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": true
+  }
+}
