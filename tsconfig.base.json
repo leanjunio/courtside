@@ -22,7 +22,6 @@
         "libs/courtside/feature/signup/src/index.ts"
       ],
       "@courtside/hooks/queries": ["libs/hooks/queries/src/index.ts"],
-      "@courtside/types": ["libs/types/src/index.ts"],
       "@courtside/ui/fields": ["libs/ui/fields/src/index.ts"]
     }
   },
