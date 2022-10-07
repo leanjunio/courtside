@@ -1,1 +1,1 @@
-export * from './lib/courtisde-feature';
+export * from './lib';
