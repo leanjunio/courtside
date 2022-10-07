@@ -1,17 +1,10 @@
+import { CreateUser } from '@courtside/data-access';
 import { EmailField, PasswordField, TextField } from '@courtside/ui/fields';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-type SignupFields = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  passwordConfirmation: string;
-};
-
 export function Signup() {
-  const form = useForm<SignupFields>();
+  const form = useForm<CreateUser>();
 
   const onSubmit = (data: unknown) => {
     form.reset();
