@@ -1,4 +1,5 @@
 import { EmailField, PasswordField, TextField } from '@courtside/ui/components';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 
 type SignupFields = {
