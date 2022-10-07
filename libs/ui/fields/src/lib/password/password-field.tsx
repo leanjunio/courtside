@@ -1,9 +1,8 @@
 import React from 'react';
-import { ExtendedInputProps } from './types';
 
 export const PasswordField = React.forwardRef<
   HTMLInputElement,
-  ExtendedInputProps
+  React.HTMLProps<HTMLInputElement>
 >(({ htmlFor, label, onChange, onBlur, name }, ref) => {
   return (
     <div className="col-span-6 sm:col-span-3">
