@@ -16,9 +16,6 @@
     "baseUrl": ".",
     "paths": {
       "@courtside/courtisde/feature": ["libs/courtisde/feature/src/index.ts"],
-      "@courtside/courtside/feature/home": [
-        "libs/courtside/feature/home/src/index.ts"
-      ],
       "@courtside/data-access": ["libs/data-access/src/index.ts"],
       "@courtside/entities": ["libs/entities/src/index.ts"],
       "@courtside/ui/fields": ["libs/ui/fields/src/index.ts"]
