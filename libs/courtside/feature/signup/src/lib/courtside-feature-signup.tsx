@@ -1,16 +1,6 @@
-import { CreateUser } from '@courtside/data-access';
-import { EmailField, PasswordField, TextField } from '@courtside/ui/fields';
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import { SignupForm } from './form';
 
 export function Signup() {
-  const form = useForm<CreateUser>();
-
-  const onSubmit = (data: unknown) => {
-    form.reset();
-    console.log(data);
-  };
-
   return (
     <section className="bg-white">
       <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
@@ -32,63 +22,7 @@ export function Signup() {
               information would be used for your communication with your
               teammates
             </p>
-
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="mt-8 grid grid-cols-6 gap-6"
-            >
-              <TextField
-                htmlFor="FirstName"
-                label="First Name"
-                {...form.register('firstName')}
-              />
-              <TextField
-                htmlFor="LastName"
-                label="Last Name"
-                {...form.register('lastName')}
-              />
-
-              <div className="col-span-6">
-                <EmailField
-                  htmlFor="Email"
-                  label="Email"
-                  {...form.register('email')}
-                />
-              </div>
-
-              <div className="col-span-6 sm:col-span-3">
-                <PasswordField
-                  htmlFor="Password"
-                  label="Password"
-                  {...form.register('password')}
-                />
-              </div>
-
-              <div className="col-span-6 sm:col-span-3">
-                <PasswordField
-                  htmlFor="PasswordConfirmation"
-                  label="Confirm Password"
-                  {...form.register('passwordConfirmation')}
-                />
-              </div>
-
-              <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
-                <button
-                  type="submit"
-                  className="inline-block shrink-0 rounded-md border border-amber-600 bg-amber-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-amber-600 focus:outline-none focus:ring active:text-amber-500"
-                >
-                  Create an account
-                </button>
-
-                <p className="mt-4 text-sm text-gray-500 sm:mt-0">
-                  Already have an account?{' '}
-                  <a href="/login" className="text-gray-700 underline">
-                    Log in
-                  </a>
-                  .
-                </p>
-              </div>
-            </form>
+            <SignupForm />
           </div>
         </main>
       </div>
