@@ -20,7 +20,8 @@
       ],
       "@courtside/hooks/queries": ["libs/hooks/queries/src/index.ts"],
       "@courtside/types": ["libs/types/src/index.ts"],
-      "@courtside/ui/components": ["libs/ui/components/src/index.ts"]
+      "@courtside/ui/components": ["libs/ui/components/src/index.ts"],
+      "@courtside/ui/fields": ["libs/ui/fields/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
