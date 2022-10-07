@@ -1,12 +1,11 @@
-import { CreateUser } from '@courtside/data-access';
+import { CreateUserDto } from '@courtside/data-access';
 import { EmailField, PasswordField, TextField } from '@courtside/ui/fields';
-import React from 'react';
 import { useForm } from 'react-hook-form';
 
 export function SignupForm() {
-  const { reset, handleSubmit, register } = useForm<CreateUser>();
+  const { reset, handleSubmit, register } = useForm<CreateUserDto>();
 
-  const onSubmit = (data: CreateUser) => {
+  const onSubmit = (data: CreateUserDto) => {
     reset();
     console.log(data);
   };

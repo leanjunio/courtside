@@ -2,7 +2,11 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "declaration": true,
-    "outDir": "../../dist/libs/user"
+    "outDir": "../../dist/libs/user",
+    "baseUrl": ".",
+    "paths": {
+      "@courtside/data-access": ["../../data-access/**"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "test", "**/*spec.ts"]
