@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExtendedInputProps } from './types';
+import { ExtendedInputProps } from '../../../../components/src/lib/fields/types';
 
 export const EmailField = React.forwardRef<
   HTMLInputElement,
