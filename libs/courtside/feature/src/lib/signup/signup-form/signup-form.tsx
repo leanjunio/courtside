@@ -1,13 +1,18 @@
-import { CreateUserDto } from '@courtside/data-access';
+import { baseUserQueries, CreateUserDto } from '@courtside/data-access';
 import { EmailField, PasswordField, TextField } from '@courtside/ui/fields';
 import { useForm } from 'react-hook-form';
 
 export function SignupForm() {
   const { reset, handleSubmit, register } = useForm<CreateUserDto>();
+  const signup = baseUserQueries.useCreateOne();
 
   const onSubmit = (data: CreateUserDto) => {
     reset();
-    console.log(data);
+    signup.mutate(data, {
+      onSettled(data, error, variables, context) {
+        console.log({ data, error, variables, context });
+      },
+    });
   };
 
   return (
