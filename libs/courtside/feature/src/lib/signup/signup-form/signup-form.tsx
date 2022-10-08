@@ -8,7 +8,6 @@ export function SignupForm() {
   const signup = baseUserQueries.useCreateOne();
 
   const onSubmit = (data: CreateUserDto) => {
-    reset();
     signup.mutate(data, {
       onSettled(data, error, variables, context) {
         console.log({ data, error, variables, context });
