@@ -1,5 +1,5 @@
 import { getEnvironmentVariables } from '@courtside/shared/util-environment';
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 
 type AxiosRequests<Response, Data = unknown> = {
   getAll: (url?: string) => Promise<Response[]>;
@@ -13,29 +13,28 @@ type AxiosRequests<Response, Data = unknown> = {
 export function createBaseAxiosRequests<R, Data = unknown>(
   url: string
 ): AxiosRequests<R, Data> {
-  const axiosInstance = axios.create({
-    baseURL: getEnvironmentVariables('NX_API_SERVER'),
-    url,
-  });
+  const config: AxiosRequestConfig = {
+    url: getEnvironmentVariables('NX_API_SERVER') + url,
+  };
 
   return {
-    getAll: (overwrittenUrl: string = url) => {
-      return axiosInstance({ method: 'get', url: overwrittenUrl });
+    getAll: () => {
+      return axios({ ...config, method: 'get' });
     },
-    get: (overwrittenUrl: string = url) => {
-      return axiosInstance({ method: 'get', url: overwrittenUrl });
+    get: () => {
+      return axios({ ...config, method: 'get' });
     },
     post: (data) => {
-      return axiosInstance({ method: 'post', data });
+      return axios({ ...config, method: 'post', data });
     },
     put: (data) => {
-      return axiosInstance({ method: 'put', data });
+      return axios({ ...config, method: 'put', data });
     },
     patch: (data) => {
-      return axiosInstance({ method: 'patch', data });
+      return axios({ ...config, method: 'patch', data });
     },
-    delete: (overwrittenUrl: string = url) => {
-      return axiosInstance({ method: 'delete', url: overwrittenUrl });
+    delete: () => {
+      return axios({ ...config, method: 'delete' });
     },
   };
 }
