@@ -1,4 +1,5 @@
-import { baseUserQueries, CreateUserDto } from '@courtside/data-access';
+import { baseUserQueries } from '@courtside/data-access';
+import { CreateUserDto } from '@courtside/entities';
 import { EmailField, PasswordField, TextField } from '@courtside/ui/fields';
 import { useForm } from 'react-hook-form';
 

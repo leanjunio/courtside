@@ -1,7 +1,7 @@
-import { CreateUserDto } from '@courtside/data-access';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
+import { CreateUserDto } from './user';
 import { User, UserDocument } from './user.schema';
 
 @Injectable()
