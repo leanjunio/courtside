@@ -1,4 +1,4 @@
-import { Home, Login, Signup } from '@courtside/courtside/feature';
+import { Dashboard, Home, Login, Signup } from '@courtside/courtside/feature';
 import { createBrowserRouter } from 'react-router-dom';
 
 export const router = createBrowserRouter([
@@ -13,5 +13,9 @@ export const router = createBrowserRouter([
   {
     path: 'login',
     element: <Login />,
+  },
+  {
+    path: 'dashboard',
+    element: <Dashboard />,
   },
 ]);
