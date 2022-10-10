@@ -4,10 +4,11 @@ import { LoadingSpinner } from '../../loading';
 import { Sidebar } from '../../navigation';
 
 type PageWrapperProps = {
+  title: string;
   children: React.ReactNode;
 };
 
-export function PageWrapper({ children }: PageWrapperProps) {
+export function PageWrapper({ title, children }: PageWrapperProps) {
   const { isAuthenticated, user, error } = useAuth0();
   const { enqueueSnackbar } = useSnackbar();
   console.log({ isAuthenticated, user });
@@ -21,9 +22,12 @@ export function PageWrapper({ children }: PageWrapperProps) {
       {!isAuthenticated || !user ? (
         <LoadingSpinner />
       ) : (
-        <div className="flex">
+        <div className="flex w-full">
           <Sidebar user={user} />
-          <div className="px-3 py-7">{children}</div>
+          <div className="px-3 py-7 grow">
+            <h1>{title}</h1>
+            {children}
+          </div>
         </div>
       )}
     </div>
