@@ -1,11 +1,12 @@
 import {
-  CreateTeam,
   Dashboard,
   Home,
+  ListTeams,
   Login,
   Signup,
 } from '@courtside/courtside/feature';
 import { createBrowserRouter } from 'react-router-dom';
+import { ProtectedRoute } from './protected';
 
 export const router = createBrowserRouter([
   {
@@ -22,10 +23,10 @@ export const router = createBrowserRouter([
   },
   {
     path: 'dashboard',
-    element: <Dashboard />,
+    element: <ProtectedRoute component={Dashboard} />,
   },
   {
-    path: 'teams/create',
-    element: <CreateTeam />,
+    path: 'teams',
+    element: <ProtectedRoute component={ListTeams} />,
   },
 ]);
