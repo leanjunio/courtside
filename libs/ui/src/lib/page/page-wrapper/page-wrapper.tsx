@@ -22,7 +22,7 @@ export function PageWrapper({ children }: PageWrapperProps) {
         <LoadingSpinner />
       ) : (
         <div className="flex">
-          {user && <Sidebar user={user} />}
+          <Sidebar user={user} />
           <div className="px-3 py-7">{children}</div>
         </div>
       )}
