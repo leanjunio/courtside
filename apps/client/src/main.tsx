@@ -17,7 +17,7 @@ root.render(
     <Auth0Provider
       clientId={getEnvironmentVariables('NX_AUTH0_CLIENT_ID')}
       domain={getEnvironmentVariables('NX_AUTH0_DOMAIN')}
-      redirectUri={window.location.origin}
+      redirectUri={window.location.origin + '/dashboard'}
     >
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />

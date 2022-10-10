@@ -1,9 +1,11 @@
+import { Sidebar } from '@courtside/ui';
 import React from 'react';
 
 export function Dashboard() {
   return (
     <>
-      <p>Dashboard</p>
+      <Sidebar />
+      <h1>Test</h1>
     </>
   );
 }
