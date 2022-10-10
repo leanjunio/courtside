@@ -4,7 +4,14 @@ export function Sidebar() {
   return (
     <div className="flex h-screen flex-col justify-between border-r bg-white">
       <div className="px-4 py-6">
-        <span className="block h-10 w-32 rounded-lg bg-gray-200"></span>
+        <a href="/">
+          <span className="flex flex-row items-center h-10 w-32 rounded-lg">
+            <p className="text-3xl font-extrabold">COURTSIDE</p>
+            <span role="img" aria-label="basketball" className="text-3xl mx-2">
+              🏀
+            </span>
+          </span>
+        </a>
 
         <nav className="mt-6 flex flex-col space-y-1">
           <a
