@@ -5,11 +5,11 @@ export type SidebarProps = {
 };
 export function Sidebar({ user }: SidebarProps) {
   return (
-    <div className="flex pr-10 h-screen flex-col justify-between border-r bg-white">
+    <div className="flex h-screen flex-col justify-between border-r bg-white">
       <div className="px-4 py-6">
         <a href="/">
           <span className="flex flex-row items-center h-10 w-32 rounded-lg">
-            <p className="text-3xl font-extrabold">COURTSIDE</p>
+            <p className="text-2xl font-extrabold">COURTSIDE</p>
             <span role="img" aria-label="basketball" className="text-3xl mx-2">
               🏀
             </span>
