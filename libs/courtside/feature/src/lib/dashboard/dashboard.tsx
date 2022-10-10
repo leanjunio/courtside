@@ -6,6 +6,9 @@ export function Dashboard() {
   const { isAuthenticated, user } = useAuth0();
 
   return (
-    <>{isAuthenticated && user !== undefined && <Sidebar user={user} />}</>
+    <div className="flex">
+      {isAuthenticated && user !== undefined && <Sidebar user={user} />}
+      My Content
+    </div>
   );
 }
