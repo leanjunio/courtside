@@ -90,7 +90,7 @@ export function Sidebar({ user }: SidebarProps) {
                 <span className="ml-3 text-sm font-medium">My Teams</span>
               </a>
               <a
-                href="#"
+                href="/teams/create"
                 className="flex items-center rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100"
               >
                 <MdOutlineCreate className="h-5 w-5" />
