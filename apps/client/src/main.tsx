@@ -1,6 +1,7 @@
 import { Auth0Provider } from '@auth0/auth0-react';
 import { getEnvironmentVariables } from '@courtside/shared/util-environment';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { SnackbarProvider } from 'notistack';
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
@@ -19,9 +20,11 @@ root.render(
       domain={getEnvironmentVariables('NX_AUTH0_DOMAIN')}
       redirectUri={window.location.origin + '/dashboard'}
     >
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-      </QueryClientProvider>
+      <SnackbarProvider>
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
+      </SnackbarProvider>
     </Auth0Provider>
   </StrictMode>
 );
