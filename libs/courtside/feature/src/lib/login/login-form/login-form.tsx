@@ -1,3 +1,4 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import { LoginUserDto } from '@courtside/data-access';
 import { TextField } from '@courtside/ui/fields';
 import { useForm } from 'react-hook-form';
@@ -5,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 export function LoginForm() {
   const { reset, handleSubmit, register } = useForm<LoginUserDto>();
+  const { loginWithRedirect } = useAuth0();
   const navigate = useNavigate();
 
   const onSubmit = (data: LoginUserDto) => {
@@ -34,6 +36,13 @@ export function LoginForm() {
           className="inline-block shrink-0 rounded-md border border-amber-600 bg-amber-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-amber-600 focus:outline-none focus:ring active:text-amber-500"
         >
           Login
+        </button>
+        <button
+          onClick={() => loginWithRedirect()}
+          type="button"
+          className="inline-block shrink-0 rounded-md border border-amber-600 bg-amber-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-amber-600 focus:outline-none focus:ring active:text-amber-500"
+        >
+          Login With Auth0
         </button>
         <button
           onClick={onCancel}
