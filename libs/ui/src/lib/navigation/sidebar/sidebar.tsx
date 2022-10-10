@@ -1,9 +1,10 @@
-import { User } from '@auth0/auth0-react';
+import { useAuth0, User } from '@auth0/auth0-react';
 
 export type SidebarProps = {
   user: User;
 };
 export function Sidebar({ user }: SidebarProps) {
+  const { logout } = useAuth0();
   return (
     <div className="flex w-80 h-screen flex-col justify-between border-r bg-white">
       <div className="px-4 py-6">
@@ -249,10 +250,10 @@ export function Sidebar({ user }: SidebarProps) {
 
                 <span className="ml-3 text-sm font-medium"> Security </span>
               </a>
-
-              <form action="/logout">
+              <span>
                 <button
-                  type="submit"
+                  onClick={() => logout({ returnTo: window.location.origin })}
+                  type="button"
                   className="flex w-full items-center rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                 >
                   <svg
@@ -272,7 +273,7 @@ export function Sidebar({ user }: SidebarProps) {
 
                   <span className="ml-3 text-sm font-medium"> Logout </span>
                 </button>
-              </form>
+              </span>
             </nav>
           </details>
         </nav>
