@@ -12,9 +12,11 @@ export function Sidebar({ user }: SidebarProps) {
         <a href="/">
           <span className="flex flex-row items-center h-10 w-32 rounded-lg">
             <p className="text-2xl font-extrabold">COURTSIDE</p>
-            <span role="img" aria-label="basketball" className="text-3xl mx-2">
-              🏀
-            </span>
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/6942/6942693.png"
+              alt=""
+              className="m-3 h-12"
+            />
           </span>
         </a>
 
