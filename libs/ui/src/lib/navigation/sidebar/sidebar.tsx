@@ -85,7 +85,7 @@ export function Sidebar({ user }: SidebarProps) {
 
             <nav className="mt-1.5 ml-8 flex flex-col">
               <a
-                href="#"
+                href="/teams"
                 className="flex items-center rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100"
               >
                 <MdOutlineAssignment className="h-5 w-5" />
