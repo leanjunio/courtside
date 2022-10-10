@@ -5,7 +5,7 @@ export type SidebarProps = {
 };
 export function Sidebar({ user }: SidebarProps) {
   return (
-    <div className="flex h-screen flex-col justify-between border-r bg-white">
+    <div className="flex w-80 h-screen flex-col justify-between border-r bg-white">
       <div className="px-4 py-6">
         <a href="/">
           <span className="flex flex-row items-center h-10 w-32 rounded-lg">
