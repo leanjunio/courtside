@@ -1,6 +1,9 @@
-import React from 'react';
+import { User } from '@auth0/auth0-react';
 
-export function Sidebar() {
+export type SidebarProps = {
+  user: User;
+};
+export function Sidebar({ user }: SidebarProps) {
   return (
     <div className="flex h-screen flex-col justify-between border-r bg-white">
       <div className="px-4 py-6">
@@ -282,15 +285,16 @@ export function Sidebar() {
         >
           <img
             alt="Man"
-            src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+            src={user.picture}
             className="h-10 w-10 rounded-full object-cover"
           />
 
           <div className="ml-1.5">
             <p className="text-xs">
-              <strong className="block font-medium">Eric Frusciante</strong>
-
-              <span> eric@frusciante.com </span>
+              <strong className="block font-medium">
+                {user.given_name} {user.family_name}
+              </strong>
+              <span>{user.email}</span>
             </p>
           </div>
         </a>

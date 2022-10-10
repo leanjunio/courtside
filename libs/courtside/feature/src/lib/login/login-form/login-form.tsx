@@ -42,14 +42,13 @@ export function LoginForm() {
           type="button"
           className="inline-block shrink-0 rounded-md border border-amber-600 bg-amber-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-amber-600 focus:outline-none focus:ring active:text-amber-500"
         >
-          Login With Auth0
+          Login with Google Account
         </button>
-        <button
-          onClick={onCancel}
-          className="inline-block shrink-0 rounded-md border border-amber-600 bg-amber-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-amber-600 focus:outline-none focus:ring active:text-amber-500"
-        >
-          Cancel
-        </button>
+        <p className="mt-4 text-sm sm:mt-0">
+          <a href="/login" className="text-gray-500 underline">
+            Cancel
+          </a>
+        </p>
       </div>
     </form>
   );
