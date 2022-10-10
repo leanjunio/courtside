@@ -16,7 +16,7 @@ export function PageWrapper({ children }: PageWrapperProps) {
   return (
     <div className="flex">
       <Sidebar user={user} />
-      {children}
+      <div className="px-3 py-7">{children}</div>
     </div>
   );
 }
