@@ -8,14 +8,11 @@ type PageWrapperProps = {
 
 export function PageWrapper({ children }: PageWrapperProps) {
   const { isAuthenticated, user } = useAuth0();
-
-  if (!isAuthenticated || !user) {
-    return <Navigate replace to="/login" />;
-  }
+  console.log({ isAuthenticated, user });
 
   return (
     <div className="flex">
-      <Sidebar user={user} />
+      {user && <Sidebar user={user} />}
       <div className="px-3 py-7">{children}</div>
     </div>
   );
