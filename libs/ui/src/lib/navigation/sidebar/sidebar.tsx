@@ -1,5 +1,6 @@
 import { useAuth0, User } from '@auth0/auth0-react';
-import { MdOutlineAssignment, MdOutlineCreate } from 'react-icons/md';
+import { MdOutlineAssignment } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 export type SidebarProps = {
   user: User;
@@ -9,7 +10,7 @@ export function Sidebar({ user }: SidebarProps) {
   return (
     <div className="flex w-80 h-screen flex-col justify-between border-r bg-white">
       <div className="px-4 py-6">
-        <a href="/">
+        <Link to="/dashboard">
           <span className="flex flex-row items-center h-10 w-32 rounded-lg">
             <p className="text-2xl font-extrabold">COURTSIDE</p>
             <img
@@ -18,7 +19,7 @@ export function Sidebar({ user }: SidebarProps) {
               className="m-3 h-12"
             />
           </span>
-        </a>
+        </Link>
 
         <nav className="mt-6 flex flex-col space-y-1">
           <a
@@ -84,20 +85,13 @@ export function Sidebar({ user }: SidebarProps) {
             </summary>
 
             <nav className="mt-1.5 ml-8 flex flex-col">
-              <a
-                href="/teams"
+              <Link
+                to="/teams"
                 className="flex items-center rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100"
               >
                 <MdOutlineAssignment className="h-5 w-5" />
                 <span className="ml-3 text-sm font-medium">My Teams</span>
-              </a>
-              <a
-                href="/teams/create"
-                className="flex items-center rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100"
-              >
-                <MdOutlineCreate className="h-5 w-5" />
-                <span className="ml-3 text-sm font-medium">Create a Team</span>
-              </a>
+              </Link>
               <a
                 href="#"
                 className="flex items-center rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
