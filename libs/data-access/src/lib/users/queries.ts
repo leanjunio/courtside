@@ -1,5 +1,8 @@
 import { User } from '@courtside/entities';
 import { createBaseQueries } from '../react-query/base-queries';
-import { userRequests } from './requests';
+import { baseUserRequests } from './requests';
 
-export const baseUserQueries = createBaseQueries<User>(['users'], userRequests);
+export const baseUserQueries = createBaseQueries<User>(
+  ['users'],
+  baseUserRequests
+);
