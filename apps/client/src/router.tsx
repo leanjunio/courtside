@@ -1,5 +1,6 @@
 import {
   Dashboard,
+  Details,
   Home,
   ListTeams,
   Login,
@@ -28,5 +29,9 @@ export const router = createBrowserRouter([
   {
     path: 'teams',
     element: <ProtectedRoute component={ListTeams} />,
+  },
+  {
+    path: 'details',
+    element: <ProtectedRoute component={Details} />,
   },
 ]);
