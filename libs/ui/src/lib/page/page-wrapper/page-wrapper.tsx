@@ -11,7 +11,6 @@ type PageWrapperProps = {
 export function PageWrapper({ title, children }: PageWrapperProps) {
   const { isAuthenticated, user, error } = useAuth0();
   const { enqueueSnackbar } = useSnackbar();
-  console.log({ isAuthenticated, user });
 
   if (error) {
     enqueueSnackbar('Error: Cannot load authenticated user');
