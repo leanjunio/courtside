@@ -22,9 +22,9 @@ export class UserService {
     return this.userModel.findById(id);
   }
 
-    if (!found) {
-      throw new NotFoundException();
-    }
+  async findAll(): Promise<User[]> {
+    return this.userModel.find();
+  }
 
   async verifyAuthentication(
     email: string,
