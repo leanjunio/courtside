@@ -3,7 +3,7 @@ import { Body, Controller, Get, Post, UseFilters } from '@nestjs/common';
 import { CreateTeamDto } from './team';
 import { TeamService } from './team.service';
 
-@Controller('Team')
+@Controller('teams')
 export class TeamController {
   constructor(private teamService: TeamService) {}
   @Get()
