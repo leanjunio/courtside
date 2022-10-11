@@ -34,7 +34,7 @@ export function createBaseQueries<Entity>(
       return useQuery([queryKey, id], () => requests.getOne(id));
     },
     useGetAll: () => {
-      return useQuery([queryKey], () => requests.getAll);
+      return useQuery([queryKey], () => requests.getAll());
     },
   };
 }
