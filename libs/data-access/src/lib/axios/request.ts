@@ -19,22 +19,24 @@ export function createBaseAxiosRequests<R, Data = unknown>(
 
   return {
     getAll: () => {
-      return axios({ ...config, method: 'get' });
+      return axios({ ...config, method: 'get' }).then((res) => res.data);
     },
     get: () => {
-      return axios({ ...config, method: 'get' });
+      return axios({ ...config, method: 'get' }).then((res) => res.data);
     },
     post: (data) => {
-      return axios({ ...config, method: 'post', data });
+      return axios({ ...config, method: 'post', data }).then((res) => res.data);
     },
     put: (data) => {
-      return axios({ ...config, method: 'put', data });
+      return axios({ ...config, method: 'put', data }).then((res) => res.data);
     },
     patch: (data) => {
-      return axios({ ...config, method: 'patch', data });
+      return axios({ ...config, method: 'patch', data }).then(
+        (res) => res.data
+      );
     },
     delete: () => {
-      return axios({ ...config, method: 'delete' });
+      return axios({ ...config, method: 'delete' }).then((res) => res.data);
     },
   };
 }
