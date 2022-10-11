@@ -1,5 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { LoginUserDto } from '@courtside/data-access';
+import { LoginUserDto, useLogin } from '@courtside/data-access';
 import { TextField } from '@courtside/ui/fields';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
@@ -8,10 +8,16 @@ export function LoginForm() {
   const { reset, handleSubmit, register } = useForm<LoginUserDto>();
   const { loginWithRedirect } = useAuth0();
   const navigate = useNavigate();
+  const login = useLogin();
 
   const onSubmit = (data: LoginUserDto) => {
     reset();
-    console.log(data);
+    login.mutate(data, {
+      onSuccess(data) {
+        localStorage.setItem('token', data.access_token);
+        navigate('/dashboard');
+      },
+    });
   };
 
   const onCancel = () => {
