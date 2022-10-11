@@ -25,6 +25,10 @@ export class UserService {
       throw new NotFoundException();
     }
 
-    return found;
+  async verifyAuthentication(
+    email: string,
+    password: string
+  ): Promise<User | null> {
+    return this.userModel.findOne({ email, password }).exec();
   }
 }
