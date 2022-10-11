@@ -1,4 +1,4 @@
-import { UserModule } from '@courtside/entities';
+import { TeamModule, UserModule } from '@courtside/entities';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
@@ -10,6 +10,7 @@ import { MongooseModule } from '@nestjs/mongoose';
       pass: process.env.DB_PASSWORD,
     }),
     UserModule,
+    TeamModule,
   ],
 })
 export class AppModule {}
