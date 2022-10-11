@@ -18,8 +18,9 @@ export class UserService {
     }
   }
 
-  async findOne(user: Partial<UserDocument>): Promise<User> {
-    const found = await this.userModel.findOne(user).exec();
+  async findById(id: string): Promise<User | null> {
+    return this.userModel.findById(id);
+  }
 
     if (!found) {
       throw new NotFoundException();
