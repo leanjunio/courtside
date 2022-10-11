@@ -1,5 +1,5 @@
 import { MongoExceptionFilter } from '@courtside/shared/util-server-exceptions';
-import { Body, Controller, Post, UseFilters } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseFilters } from '@nestjs/common';
 import { CreateUserDto } from './user';
 import { UserService } from './user.service';
 
@@ -10,5 +10,10 @@ export class UserController {
   @UseFilters(MongoExceptionFilter)
   create(@Body() createUserDto: CreateUserDto) {
     return this.userService.create(createUserDto);
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.userService.findOne(id);
   }
 }
