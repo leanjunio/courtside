@@ -1,4 +1,4 @@
-import { TeamModule, UserModule } from '@courtside/entities';
+import { AuthModule, TeamModule, UserModule } from '@courtside/entities';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
@@ -12,6 +12,7 @@ import { AppController } from './app.controller';
     }),
     UserModule,
     TeamModule,
+    AuthModule,
   ],
   controllers: [AppController],
 })
