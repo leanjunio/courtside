@@ -18,7 +18,7 @@ export type BaseQueries<Entity> = {
 
 export function createBaseQueries<Entity>(
   queryKey: QueryKey,
-  requests: BaseRequests<Entity>
+  requests: BaseRequests<Entity, Entity>
 ): BaseQueries<Entity> {
   return {
     useCreateOne: () => {
