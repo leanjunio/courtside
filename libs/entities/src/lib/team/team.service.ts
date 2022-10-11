@@ -11,4 +11,8 @@ export class TeamService {
   async create(createTeamDto: CreateTeamDto): Promise<Team> {
     return new this.teamModel(createTeamDto);
   }
+
+  async findAll(): Promise<Team[]> {
+    return this.teamModel.find();
+  }
 }
