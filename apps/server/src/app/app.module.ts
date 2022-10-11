@@ -1,6 +1,7 @@
 import { TeamModule, UserModule } from '@courtside/entities';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -12,5 +13,6 @@ import { MongooseModule } from '@nestjs/mongoose';
     UserModule,
     TeamModule,
   ],
+  controllers: [AppController],
 })
 export class AppModule {}
