@@ -51,7 +51,7 @@ export function LoginForm() {
           Login with Google Account
         </button>
         <p className="mt-4 text-sm sm:mt-0">
-          <a href="/login" className="text-gray-500 underline">
+          <a onClick={() => onCancel()} className="text-gray-500 underline">
             Cancel
           </a>
         </p>
