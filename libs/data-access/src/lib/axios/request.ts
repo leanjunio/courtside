@@ -39,11 +39,26 @@ export function createBaseAxiosRequests<R, Data = unknown>(
   };
 }
 
-export type BaseRequests<Entity> = {
-  createOne: (data: Entity) => Promise<Entity>;
-  updateOne: (data: Entity) => Promise<Entity>;
-  replaceOne: (data: Entity) => Promise<Entity>;
-  getOne: (id: string) => Promise<Entity>;
-  getAll: () => Promise<Entity[]>;
-  deleteOne: (id: string) => Promise<Entity>;
+export type BaseRequests<Response, Entity> = {
+  createOne: (data: Entity) => Promise<Response>;
+  updateOne: (data: Entity) => Promise<Response>;
+  replaceOne: (data: Entity) => Promise<Response>;
+  getOne: (id: string) => Promise<Response>;
+  getAll: () => Promise<Response[]>;
+  deleteOne: (id: string) => Promise<Response>;
 };
+
+export function createBaseRequests<R, Data = unknown>(
+  url: string
+): BaseRequests<R, Data> {
+  const baseRequests = createBaseAxiosRequests<R, Data>(url);
+
+  return {
+    createOne: (data: Data) => baseRequests.post(data),
+    updateOne: (data: Data) => baseRequests.put(data),
+    replaceOne: (data: Data) => baseRequests.patch(data),
+    getOne: (id: string) => baseRequests.get(`/${url}/${id}`),
+    getAll: () => baseRequests.getAll(`/${url}`),
+    deleteOne: (id: string) => baseRequests.delete(`/${url}/${id}`),
+  };
+}
