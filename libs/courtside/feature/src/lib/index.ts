@@ -3,3 +3,4 @@ export * from './home';
 export * from './login';
 export * from './signup';
 export * from './teams';
+export * from './user';
