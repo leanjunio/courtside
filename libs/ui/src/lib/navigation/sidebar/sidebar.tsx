@@ -296,7 +296,7 @@ export function Sidebar({ user }: SidebarProps) {
           className="flex shrink-0 items-center bg-white p-4 hover:bg-gray-50"
         >
           <img
-            alt="Man"
+            alt="user-picture"
             src={user.picture}
             className="h-10 w-10 rounded-full object-cover"
           />
