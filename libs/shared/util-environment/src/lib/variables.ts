@@ -11,7 +11,7 @@ export function getEnvironmentVariables(name?: string): string {
   const variable = process.env[name];
 
   if (!variable) {
-    throw new Error(`process.env.{name} cannot be found in the .env file`);
+    throw new Error(`process.env.${name} cannot be found in the .env file`);
   }
 
   return variable;
