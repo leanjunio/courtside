@@ -1,15 +1,5 @@
-import { MongoExceptionFilter } from '@courtside/shared/util-server-exceptions';
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  Post,
-  UseFilters,
-  UseGuards,
-} from '@nestjs/common';
+import { Controller, Get, Param, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { CreateUserDto } from './user';
 import { UserService } from './user.service';
 
 @Controller('users')
