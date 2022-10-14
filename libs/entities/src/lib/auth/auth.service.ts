@@ -13,10 +13,10 @@ export class AuthService {
     return this.userService.create(createUserDto);
   }
 
-  async validateUser(email: string, password: string) {
-    const user = await this.userService.verifyAuthentication(email, password);
+  async validateUser(email: string) {
+    const user = await this.userService.verifyAuthentication(email);
 
-    if (user !== null && user.password === password) {
+    if (user !== null) {
       return user;
     }
 
