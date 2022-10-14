@@ -16,11 +16,6 @@ import { UserService } from './user.service';
 @UseGuards(JwtAuthGuard)
 export class UserController {
   constructor(private userService: UserService) {}
-  @Post()
-  @UseFilters(MongoExceptionFilter)
-  create(@Body() createUserDto: CreateUserDto) {
-    return this.userService.create(createUserDto);
-  }
 
   @Get()
   findAll() {

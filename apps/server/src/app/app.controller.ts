@@ -4,6 +4,10 @@ import { Controller, Get, Post, Request, UseGuards } from '@nestjs/common';
 @Controller()
 export class AppController {
   constructor(private authService: AuthService) {}
+  @Post('auth/signup')
+  async signup(@Request() req) {
+    return this.authService.signup(req.user);
+  }
 
   @UseGuards(LocalAuthGuard)
   @Post('auth/login')
