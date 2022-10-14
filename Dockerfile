@@ -6,7 +6,7 @@ ENV NODE_ENV $NODE_ENV
 EXPOSE 3333 9229 9230
 
 RUN apt-get update
-RUN apt-get install -y curl
+RUN apt-get install -y curl procps
 RUN npm i npm@latest -g
 
 RUN mkdir /opt/node_app && chown node:node /opt/node_app
