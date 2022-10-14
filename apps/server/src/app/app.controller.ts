@@ -1,12 +1,19 @@
 import { AuthService, JwtAuthGuard, LocalAuthGuard } from '@courtside/entities';
-import { Controller, Get, Post, Request, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Request,
+  UseGuards,
+} from '@nestjs/common';
 
 @Controller()
 export class AppController {
   constructor(private authService: AuthService) {}
   @Post('auth/signup')
-  async signup(@Request() req) {
-    return this.authService.signup(req.user);
+  async signup(@Body() user) {
+    return this.authService.signup(user);
   }
 
   @UseGuards(LocalAuthGuard)
