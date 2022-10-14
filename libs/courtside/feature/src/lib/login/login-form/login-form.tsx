@@ -20,10 +20,12 @@ export function LoginForm() {
         localStorage.setItem('token', data.access_token);
         navigate('/dashboard');
       },
-      onError(error) {
-        enqueueSnackbar(error.message, {
-          variant: 'error',
-        });
+      onError(error, { email }) {
+        if (error.response?.status === 404) {
+          enqueueSnackbar(`User with ${email} could not be found`, {
+            variant: 'error',
+          });
+        }
       },
     });
   };
