@@ -1,6 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { LoginUserDto, useLogin } from '@courtside/data-access';
-import { TextField } from '@courtside/ui/fields';
+import { PasswordField, TextField } from '@courtside/ui/fields';
 import { useSnackbar } from 'notistack';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
@@ -44,7 +44,7 @@ export function LoginForm() {
       className="mt-8 grid grid-cols-6 gap-6"
     >
       <TextField htmlFor="Email" label="Email" {...register('email')} />
-      <TextField
+      <PasswordField
         htmlFor="Password"
         label="Password"
         {...register('password')}
