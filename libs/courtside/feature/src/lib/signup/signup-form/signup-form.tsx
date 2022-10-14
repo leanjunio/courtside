@@ -1,18 +1,27 @@
-import { baseUserQueries } from '@courtside/data-access';
+import { useSignup } from '@courtside/data-access';
 import { CreateUserDto } from '@courtside/entities';
 import { EmailField, PasswordField, TextField } from '@courtside/ui/fields';
+import { useSnackbar } from 'notistack';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 export function SignupForm() {
   const { reset, handleSubmit, register } = useForm<CreateUserDto>();
   const navigate = useNavigate();
-  const signup = baseUserQueries.useCreateOne();
+  const { enqueueSnackbar } = useSnackbar();
+  const signup = useSignup();
 
   const onSubmit = (data: CreateUserDto) => {
     reset();
     signup.mutate(data, {
-      onSettled: () => navigate('/login'),
+      onSuccess: () => {
+        navigate('/login');
+      },
+      onError: (error) => {
+        enqueueSnackbar(error.message, {
+          variant: 'error',
+        });
+      },
     });
   };
 
