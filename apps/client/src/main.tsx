@@ -20,7 +20,9 @@ root.render(
       domain={getEnvironmentVariables('NX_AUTH0_DOMAIN')}
       redirectUri={window.location.origin + '/dashboard'}
     >
-      <SnackbarProvider>
+      <SnackbarProvider
+        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+      >
         <QueryClientProvider client={queryClient}>
           <RouterProvider router={router} />
         </QueryClientProvider>
