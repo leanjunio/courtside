@@ -1,6 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { LoginUserDto, useLogin } from '@courtside/data-access';
 import { TextField } from '@courtside/ui/fields';
+import { useSnackbar } from 'notistack';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,14 +9,21 @@ export function LoginForm() {
   const { reset, handleSubmit, register } = useForm<LoginUserDto>();
   const { loginWithRedirect } = useAuth0();
   const navigate = useNavigate();
+  const { enqueueSnackbar } = useSnackbar();
   const login = useLogin();
 
   const onSubmit = (data: LoginUserDto) => {
     reset();
     login.mutate(data, {
       onSuccess(data) {
+        enqueueSnackbar('Welcome!', { variant: 'success' });
         localStorage.setItem('token', data.access_token);
         navigate('/dashboard');
+      },
+      onError(error) {
+        enqueueSnackbar(error.message, {
+          variant: 'error',
+        });
       },
     });
   };
