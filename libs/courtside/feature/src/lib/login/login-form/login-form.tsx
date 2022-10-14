@@ -25,6 +25,10 @@ export function LoginForm() {
           enqueueSnackbar(`User with ${email} could not be found`, {
             variant: 'error',
           });
+        } else {
+          enqueueSnackbar('An error occurred while logging in', {
+            variant: 'error',
+          });
         }
       },
     });
