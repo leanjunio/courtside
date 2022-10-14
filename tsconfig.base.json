@@ -19,6 +19,7 @@
       "@courtside/courtside/feature": ["libs/courtside/feature/src/index.ts"],
       "@courtside/data-access": ["libs/data-access/src/index.ts"],
       "@courtside/entities": ["libs/entities/src/index.ts"],
+      "@courtside/shared": ["libs/shared/src/index.ts"],
       "@courtside/shared/util-environment": [
         "libs/shared/util-environment/src/index.ts"
       ],
