@@ -1,14 +1,18 @@
-import {
-  withAuthenticationRequired,
-  WithAuthenticationRequiredOptions,
-} from '@auth0/auth0-react';
-import { ComponentType } from 'react';
+import { useCurrentUser } from '@courtside/courtside/feature';
+import { Navigate } from 'react-router-dom';
 
-type ProtectedRouteProps = WithAuthenticationRequiredOptions & {
-  component: ComponentType;
+type ProtectedRouteProps = {
+  component: React.FunctionComponent;
 };
 
-export function ProtectedRoute({ component, ...props }: ProtectedRouteProps) {
-  const Component = withAuthenticationRequired(component, props);
-  return <Component />;
+export function ProtectedRoute({
+  component: Component,
+}: ProtectedRouteProps): JSX.Element {
+  const isLoggedIn = useCurrentUser((state) => state.isLoggedIn);
+
+  if (isLoggedIn) {
+    return <Component />;
+  }
+
+  return <Navigate to="/login" />;
 }
