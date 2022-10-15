@@ -1,10 +1,9 @@
-import { useAuth0 } from '@auth0/auth0-react';
 import {
   LoginUserDto,
   LoginUserSchema,
   useLogin,
 } from '@courtside/data-access';
-import { EmailField, PasswordField, TextField } from '@courtside/ui/fields';
+import { EmailField, PasswordField } from '@courtside/ui/fields';
 import { DevTool } from '@hookform/devtools';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSnackbar } from 'notistack';
@@ -12,16 +11,9 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 export function LoginForm() {
-  const {
-    reset,
-    handleSubmit,
-    register,
-    formState: { errors },
-    control,
-  } = useForm<LoginUserDto>({
+  const { reset, handleSubmit, control } = useForm<LoginUserDto>({
     resolver: zodResolver(LoginUserSchema),
   });
-  const { loginWithRedirect } = useAuth0();
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
   const login = useLogin();
