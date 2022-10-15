@@ -1,3 +1,4 @@
+import { FieldError } from '@courtside/ui';
 import { Control, Controller, FieldValues, Path } from 'react-hook-form';
 
 type TextFieldProps<TFieldValues extends FieldValues> = {
@@ -28,7 +29,7 @@ export function TextField<TFieldValues extends FieldValues>({
               className="mt-1 p-3 border w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
               {...field}
             />
-            {error && <span className="text-xs p-2 text-red-500">{error}</span>}
+            <FieldError message={error} />
           </div>
         );
       }}
