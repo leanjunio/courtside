@@ -35,11 +35,13 @@ export function SignupForm() {
     });
   };
 
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    handleSubmit(onSubmit)(e);
+  };
+
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="mt-8 grid grid-cols-6 gap-6"
-    >
+    <form onSubmit={handleFormSubmit} className="mt-8 grid grid-cols-6 gap-6">
       <TextField control={control} name="firstName" label="First Name" />
       <TextField control={control} name="lastName" label="Last Name" />
 
