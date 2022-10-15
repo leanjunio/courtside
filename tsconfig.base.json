@@ -17,6 +17,9 @@
     "baseUrl": ".",
     "paths": {
       "@courtside/courtside/feature": ["libs/courtside/feature/src/index.ts"],
+      "@courtside/courtside/navigation": [
+        "libs/courtside/navigation/src/index.ts"
+      ],
       "@courtside/data-access": ["libs/data-access/src/index.ts"],
       "@courtside/entities": ["libs/entities/src/index.ts"],
       "@courtside/shared/util-environment": [
