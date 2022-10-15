@@ -31,6 +31,7 @@ export function SignupForm() {
           variant: 'error',
         });
       },
+      onSettled: () => reset(),
     });
   };
 
