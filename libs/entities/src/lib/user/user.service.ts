@@ -26,10 +26,7 @@ export class UserService {
     return this.userModel.find();
   }
 
-  async verifyAuthentication(
-    email: string,
-    password: string
-  ): Promise<User | null> {
+  async verifyAuthentication(email: string, password: string) {
     return this.userModel.findOne({ email, password }).exec();
   }
 }
