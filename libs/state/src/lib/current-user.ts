@@ -6,6 +6,7 @@ type CurrentUserState = {
   user: BaseUserDto;
   isLoggedIn: boolean;
   login: (user: BaseUserDto) => void;
+  logout: () => void;
 };
 
 export const useCurrentUser = create<CurrentUserState>()(
@@ -17,5 +18,16 @@ export const useCurrentUser = create<CurrentUserState>()(
     },
     isLoggedIn: false,
     login: (user) => set(() => ({ user, isLoggedIn: true })),
+    logout: () => {
+      localStorage.removeItem('token');
+      set(() => ({
+        user: {
+          firstName: '',
+          lastName: '',
+          email: '',
+        },
+        isLoggedIn: false,
+      }));
+    },
   }))
 );

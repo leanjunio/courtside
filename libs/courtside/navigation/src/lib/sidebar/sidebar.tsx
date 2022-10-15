@@ -1,13 +1,14 @@
-import { useAuth0 } from '@auth0/auth0-react';
 import { BaseUserDto } from '@courtside/entities';
+import { useCurrentUser } from '@courtside/state';
 import { MdOutlineAssignment, MdOutlineAssignmentInd } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export type SidebarProps = {
   user: BaseUserDto;
 };
 export function Sidebar({ user }: SidebarProps) {
-  const { logout } = useAuth0();
+  const logout = useCurrentUser((s) => s.logout);
+  const navigate = useNavigate();
   return (
     <div className="flex w-80 h-screen flex-col justify-between border-r bg-white">
       <div className="px-4 py-6">
@@ -250,7 +251,10 @@ export function Sidebar({ user }: SidebarProps) {
               </a>
               <span>
                 <button
-                  onClick={() => logout({ returnTo: window.location.origin })}
+                  onClick={() => {
+                    logout();
+                    navigate('/');
+                  }}
                   type="button"
                   className="flex w-full items-center rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
                 >
