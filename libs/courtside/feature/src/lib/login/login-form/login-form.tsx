@@ -4,7 +4,6 @@ import {
   useLogin,
 } from '@courtside/data-access';
 import { EmailField, PasswordField } from '@courtside/ui/fields';
-import { DevTool } from '@hookform/devtools';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSnackbar } from 'notistack';
 import { useForm } from 'react-hook-form';
@@ -45,35 +44,32 @@ export function LoginForm() {
   };
 
   return (
-    <>
-      <form
-        onSubmit={handleSubmit(onSubmit, (errors) => {
-          console.log({ errors });
-        })}
-        className="mt-8 grid grid-cols-6 gap-6"
-      >
-        <EmailField name="email" control={control} label="Email" />
-        <PasswordField control={control} name="password" label="Password" />
+    <form
+      onSubmit={handleSubmit(onSubmit, (errors) => {
+        console.log({ errors });
+      })}
+      className="mt-8 grid grid-cols-6 gap-6"
+    >
+      <EmailField name="email" control={control} label="Email" />
+      <PasswordField control={control} name="password" label="Password" />
 
-        <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
-          <button
-            type="submit"
-            className="inline-block shrink-0 rounded-md border border-amber-600 bg-amber-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-amber-600 focus:outline-none focus:ring active:text-amber-500"
+      <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
+        <button
+          type="submit"
+          className="inline-block shrink-0 rounded-md border border-amber-600 bg-amber-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-amber-600 focus:outline-none focus:ring active:text-amber-500"
+        >
+          Login
+        </button>
+        <p className="mt-4 text-sm sm:mt-0">
+          <a
+            role="button"
+            onClick={onCancel}
+            className="text-gray-500 underline"
           >
-            Login
-          </button>
-          <p className="mt-4 text-sm sm:mt-0">
-            <a
-              role="button"
-              onClick={onCancel}
-              className="text-gray-500 underline"
-            >
-              Cancel
-            </a>
-          </p>
-        </div>
-      </form>
-      <DevTool control={control} />
-    </>
+            Cancel
+          </a>
+        </p>
+      </div>
+    </form>
   );
 }
