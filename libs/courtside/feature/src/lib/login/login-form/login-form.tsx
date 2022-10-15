@@ -12,6 +12,10 @@ import { useNavigate } from 'react-router-dom';
 export function LoginForm() {
   const { reset, handleSubmit, control } = useForm<LoginUserDto>({
     resolver: zodResolver(LoginUserSchema),
+    defaultValues: {
+      email: '',
+      password: '',
+    },
   });
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
