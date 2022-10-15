@@ -62,7 +62,7 @@ export function LoginForm() {
         })}
         className="mt-8 grid grid-cols-6 gap-6"
       >
-        <EmailField htmlFor="Email" label="Email" {...register('email')} />
+        <EmailField name="email" control={control} label="Email" />
         <PasswordField
           htmlFor="Password"
           label="Password"

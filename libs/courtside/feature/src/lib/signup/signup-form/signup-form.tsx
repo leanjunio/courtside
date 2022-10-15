@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 export function SignupForm() {
-  const { reset, handleSubmit, register } = useForm<CreateUserDto>();
+  const { reset, handleSubmit, control, register } = useForm<CreateUserDto>();
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
   const signup = useSignup();
@@ -42,7 +42,7 @@ export function SignupForm() {
       />
 
       <div className="col-span-6">
-        <EmailField htmlFor="Email" label="Email" {...register('email')} />
+        <EmailField control={control} name="email" label="Email" />
       </div>
 
       <div className="col-span-6 sm:col-span-3">
