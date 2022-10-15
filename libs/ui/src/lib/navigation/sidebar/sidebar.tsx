@@ -1,9 +1,11 @@
-import { useAuth0, User } from '@auth0/auth0-react';
+import { useAuth0 } from '@auth0/auth0-react';
+import { useCurrentUser } from '@courtside/courtside/feature';
+import { BaseUserDto } from '@courtside/entities';
 import { MdOutlineAssignment, MdOutlineAssignmentInd } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 export type SidebarProps = {
-  user: User;
+  user: BaseUserDto;
 };
 export function Sidebar({ user }: SidebarProps) {
   const { logout } = useAuth0();
@@ -283,14 +285,14 @@ export function Sidebar({ user }: SidebarProps) {
         >
           <img
             alt="user-picture"
-            src={user.picture}
+            src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
             className="h-10 w-10 rounded-full object-cover"
           />
 
           <div className="ml-1.5">
             <p className="text-xs">
               <strong className="block font-medium">
-                {user.given_name} {user.family_name}
+                {user.firstName} {user.lastName}
               </strong>
               <span>{user.email}</span>
             </p>

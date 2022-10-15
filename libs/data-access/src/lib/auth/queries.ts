@@ -5,7 +5,7 @@ import { LoginUserDto } from '../users';
 import { login, signup } from './requests';
 
 export function useLogin(): UseMutationResult<
-  { access_token: string },
+  { access_token: string; firstName: string; lastName: string; email: string },
   AxiosError,
   LoginUserDto
 > {

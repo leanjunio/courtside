@@ -1,5 +1,4 @@
-import { useAuth0 } from '@auth0/auth0-react';
-import { useSnackbar } from 'notistack';
+import { useCurrentUser } from '@courtside/courtside/feature';
 import { LoadingSpinner } from '../../loading';
 import { Sidebar } from '../../navigation';
 
@@ -9,16 +8,14 @@ type PageWrapperProps = {
 };
 
 export function PageWrapper({ title, children }: PageWrapperProps) {
-  const { isAuthenticated, user, error } = useAuth0();
-  const { enqueueSnackbar } = useSnackbar();
-
-  if (error) {
-    enqueueSnackbar('Error: Cannot load authenticated user');
-  }
+  const { isLoggedIn, user } = useCurrentUser((s) => ({
+    isLoggedIn: s.isLoggedIn,
+    user: s.user,
+  }));
 
   return (
     <div className="h-screen bg-gray-50">
-      {!isAuthenticated || !user ? (
+      {!isLoggedIn ? (
         <LoadingSpinner />
       ) : (
         <div className="flex w-full">

@@ -8,6 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useSnackbar } from 'notistack';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import { useCurrentUser } from '../../hooks';
 
 export function LoginForm() {
   const { reset, handleSubmit, control } = useForm<LoginUserDto>({
@@ -19,13 +20,19 @@ export function LoginForm() {
   });
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
+  const loginToState = useCurrentUser((state) => state.login);
   const login = useLogin();
 
   const onSubmit = (data: LoginUserDto) => {
     login.mutate(data, {
-      onSuccess(data) {
+      onSuccess({ access_token, email, firstName, lastName }) {
         enqueueSnackbar('Welcome!', { variant: 'success' });
-        localStorage.setItem('token', data.access_token);
+        localStorage.setItem('token', access_token);
+        loginToState({
+          email,
+          firstName,
+          lastName,
+        });
         navigate('/dashboard');
       },
       onError(error) {
