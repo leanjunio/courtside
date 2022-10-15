@@ -13,8 +13,8 @@ export class AuthService {
     return this.userService.create(createUserDto);
   }
 
-  async validateUser(email: string) {
-    const user = await this.userService.verifyAuthentication(email);
+  async validateUser(email: string, password: string) {
+    const user = await this.userService.verifyAuthentication(email, password);
 
     if (user !== null) {
       return user;
