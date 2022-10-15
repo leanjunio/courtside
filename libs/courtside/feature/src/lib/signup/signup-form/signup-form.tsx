@@ -1,6 +1,6 @@
 import { signupSchema, useSignup } from '@courtside/data-access';
 import { CreateUserDto } from '@courtside/entities';
-import { EmailField, PasswordField, TextField } from '@courtside/ui/fields';
+import { EmailField, PasswordField, TextField } from '@courtside/ui';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSnackbar } from 'notistack';
 import { useForm } from 'react-hook-form';
