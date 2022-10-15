@@ -1,4 +1,4 @@
-import { useSignup } from '@courtside/data-access';
+import { signupSchema, useSignup } from '@courtside/data-access';
 import { CreateUserDto } from '@courtside/entities';
 import { EmailField, PasswordField, TextField } from '@courtside/ui/fields';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 export function SignupForm() {
   const { reset, handleSubmit, control } = useForm<CreateUserDto>({
-    resolver: zodResolver(),
+    resolver: zodResolver(signupSchema),
   });
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
