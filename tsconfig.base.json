@@ -29,8 +29,7 @@
         "libs/shared/util-server-exceptions/src/index.ts"
       ],
       "@courtside/state": ["libs/state/src/index.ts"],
-      "@courtside/ui": ["libs/ui/src/index.ts"],
-      "@courtside/ui/fields": ["libs/ui/fields/src/index.ts"]
+      "@courtside/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
