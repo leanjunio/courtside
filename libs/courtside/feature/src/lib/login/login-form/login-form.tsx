@@ -19,8 +19,6 @@ export function LoginForm() {
   const login = useLogin();
 
   const onSubmit = (data: LoginUserDto) => {
-    console.log('calling onSubmit');
-
     reset();
     login.mutate(data, {
       onSuccess(data) {
