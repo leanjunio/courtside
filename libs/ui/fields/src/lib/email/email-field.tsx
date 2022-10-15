@@ -21,7 +21,7 @@ export function EmailField<TFieldValues extends FieldValues>({
 
         return (
           <div className="col-span-6 sm:col-span-3">
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-base font-medium text-gray-700">
               {label}
             </label>
 
