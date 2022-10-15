@@ -1,5 +1,5 @@
-import { FieldError } from '@courtside/ui';
 import { Control, Controller, FieldValues, Path } from 'react-hook-form';
+import { FieldError } from '../../messages';
 
 type TextFieldProps<TFieldValues extends FieldValues> = {
   name: Path<TFieldValues>;

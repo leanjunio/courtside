@@ -1,5 +1,3 @@
-import { FieldError } from '@courtside/ui';
-import React from 'react';
 import { Control, Controller, FieldValues, Path } from 'react-hook-form';
 
 type PasswordFieldProps<TFieldValues extends FieldValues> = {
