@@ -4,7 +4,7 @@ import {
   useLogin,
 } from '@courtside/data-access';
 import { useCurrentUser } from '@courtside/state';
-import { EmailField, PasswordField } from '@courtside/ui/fields';
+import { EmailField, PasswordField } from '@courtside/ui';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSnackbar } from 'notistack';
 import { useForm } from 'react-hook-form';

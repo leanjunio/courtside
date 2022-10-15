@@ -1,5 +1,4 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { useCurrentUser } from '@courtside/courtside/feature';
 import { BaseUserDto } from '@courtside/entities';
 import { MdOutlineAssignment, MdOutlineAssignmentInd } from 'react-icons/md';
 import { Link } from 'react-router-dom';
