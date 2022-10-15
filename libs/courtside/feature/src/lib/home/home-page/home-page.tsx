@@ -22,7 +22,7 @@ export function Home() {
 
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
-              to="/register"
+              to="/signup"
               className="block w-full rounded bg-amber-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-amber-700 focus:outline-none focus:ring active:bg-amber-500 sm:w-auto"
             >
               Get Started
