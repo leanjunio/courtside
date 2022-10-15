@@ -28,9 +28,9 @@ export function LoginForm() {
         localStorage.setItem('token', data.access_token);
         navigate('/dashboard');
       },
-      onError(error, { email }) {
+      onError(error) {
         if (error.response?.status === 404) {
-          enqueueSnackbar(`User with ${email} could not be found`, {
+          enqueueSnackbar(`Incorrect email or password`, {
             variant: 'error',
           });
         } else {
