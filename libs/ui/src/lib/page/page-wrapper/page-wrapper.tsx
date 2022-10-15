@@ -1,6 +1,6 @@
+import { Sidebar } from '@courtside/courtside/navigation';
 import { useCurrentUser } from '@courtside/state';
 import { LoadingSpinner } from '../../loading';
-import { Sidebar } from '../../navigation';
 
 type PageWrapperProps = {
   title: string;
