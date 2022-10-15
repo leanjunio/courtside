@@ -38,9 +38,8 @@ export function ListTeams() {
         <BasicModal
           isOpen={modal}
           setOpen={setModal}
-          description="this is a description of the modal"
-          message="test"
-          title="test"
+          description="Enter your team's details"
+          title="Create a Team"
         />
         {output}
       </div>
