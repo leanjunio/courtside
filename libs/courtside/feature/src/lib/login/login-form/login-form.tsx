@@ -3,12 +3,12 @@ import {
   LoginUserSchema,
   useLogin,
 } from '@courtside/data-access';
+import { useCurrentUser } from '@courtside/state';
 import { EmailField, PasswordField } from '@courtside/ui/fields';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSnackbar } from 'notistack';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { useCurrentUser } from '../../hooks';
 
 export function LoginForm() {
   const { reset, handleSubmit, control } = useForm<LoginUserDto>({

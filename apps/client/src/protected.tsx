@@ -1,4 +1,4 @@
-import { useCurrentUser } from '@courtside/courtside/feature';
+import { useCurrentUser } from '@courtside/state';
 import { Navigate } from 'react-router-dom';
 
 type ProtectedRouteProps = {

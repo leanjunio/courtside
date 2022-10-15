@@ -1,4 +1,4 @@
-import { useCurrentUser } from '@courtside/courtside/feature';
+import { useCurrentUser } from '@courtside/state';
 import { LoadingSpinner } from '../../loading';
 import { Sidebar } from '../../navigation';
 
