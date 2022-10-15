@@ -1,12 +1,15 @@
 import { useSignup } from '@courtside/data-access';
 import { CreateUserDto } from '@courtside/entities';
 import { EmailField, PasswordField, TextField } from '@courtside/ui/fields';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useSnackbar } from 'notistack';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 export function SignupForm() {
-  const { reset, handleSubmit, control } = useForm<CreateUserDto>();
+  const { reset, handleSubmit, control } = useForm<CreateUserDto>({
+    resolver: zodResolver(),
+  });
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
   const signup = useSignup();
