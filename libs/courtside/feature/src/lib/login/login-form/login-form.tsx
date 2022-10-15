@@ -26,7 +26,7 @@ export function LoginForm() {
   const onSubmit = (data: LoginUserDto) => {
     login.mutate(data, {
       onSuccess({ access_token, email, firstName, lastName }) {
-        enqueueSnackbar('Welcome!', { variant: 'success' });
+        enqueueSnackbar(`Welcome ${firstName}!`, { variant: 'success' });
         localStorage.setItem('token', access_token);
         loginToState({
           email,
