@@ -1,1 +1,1 @@
-export * from './create-team';
+export * from './create-team-form';
