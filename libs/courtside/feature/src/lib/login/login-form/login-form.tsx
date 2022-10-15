@@ -74,7 +74,11 @@ export function LoginForm() {
           Login
         </button>
         <p className="mt-4 text-sm sm:mt-0">
-          <a onClick={() => onCancel()} className="text-gray-500 underline">
+          <a
+            role="button"
+            onClick={onCancel}
+            className="text-gray-500 underline"
+          >
             Cancel
           </a>
         </p>
