@@ -5,10 +5,11 @@ import {
   EmptyState,
   LoadingSpinner,
   PageWrapper,
-  TextField
+  TextField,
 } from '@courtside/ui';
 import { useSnackbar } from 'notistack';
 import { useState } from 'react';
+import { CreateTeamForm } from '../create-team';
 
 export function ListTeams() {
   const { status, data } = baseTeamQueries.useGetAll();
@@ -42,9 +43,7 @@ export function ListTeams() {
           description="Enter your team's details"
           title="Create a Team"
         >
-          <form>
-            <input />
-          </form>
+          <CreateTeamForm onCancel={() => console.log('cancel')} />
         </BasicModal>
         {output}
       </div>
