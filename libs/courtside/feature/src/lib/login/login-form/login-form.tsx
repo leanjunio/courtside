@@ -11,7 +11,12 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
 export function LoginForm() {
-  const { reset, handleSubmit, register } = useForm<LoginUserDto>({
+  const {
+    reset,
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm<LoginUserDto>({
     resolver: zodResolver(LoginUserSchema),
   });
   const { loginWithRedirect } = useAuth0();
@@ -20,6 +25,8 @@ export function LoginForm() {
   const login = useLogin();
 
   const onSubmit = (data: LoginUserDto) => {
+    console.log('calling onSubmit');
+
     reset();
     login.mutate(data, {
       onSuccess(data) {
@@ -47,7 +54,9 @@ export function LoginForm() {
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onSubmit, (errors) => {
+        console.log({ errors });
+      })}
       className="mt-8 grid grid-cols-6 gap-6"
     >
       <TextField htmlFor="Email" label="Email" {...register('email')} />
@@ -63,13 +72,6 @@ export function LoginForm() {
           className="inline-block shrink-0 rounded-md border border-amber-600 bg-amber-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-amber-600 focus:outline-none focus:ring active:text-amber-500"
         >
           Login
-        </button>
-        <button
-          onClick={() => loginWithRedirect()}
-          type="button"
-          className="inline-block shrink-0 rounded-md border border-amber-600 bg-amber-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-amber-600 focus:outline-none focus:ring active:text-amber-500"
-        >
-          Login with Google Account
         </button>
         <p className="mt-4 text-sm sm:mt-0">
           <a onClick={() => onCancel()} className="text-gray-500 underline">
