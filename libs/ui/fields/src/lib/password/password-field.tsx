@@ -17,9 +17,7 @@ export function PasswordField<TFieldValues extends FieldValues>({
     <Controller
       name={name}
       control={control}
-      render={({ field, formState: { errors } }) => {
-        const error = errors[name]?.message?.toString();
-
+      render={({ field, fieldState: { error } }) => {
         return (
           <div className="col-span-6 sm:col-span-3">
             <label className="block text-base font-medium text-gray-700">
@@ -31,7 +29,7 @@ export function PasswordField<TFieldValues extends FieldValues>({
               className="mt-1 p-3 border w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
               {...field}
             />
-            <FieldError message={error} />
+            <FieldError message={error?.message} />
           </div>
         );
       }}
