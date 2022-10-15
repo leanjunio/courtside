@@ -1,24 +1,32 @@
-import React from 'react';
+import { Control, Controller, FieldValues, Path } from 'react-hook-form';
 
-export const EmailField = React.forwardRef<
-  HTMLInputElement,
-  React.HTMLProps<HTMLInputElement>
->(({ htmlFor, label }, ref) => {
+type EmailFieldProps<TFieldValues extends FieldValues> = {
+  label: string;
+  name: Path<TFieldValues>;
+  control: Control<TFieldValues>;
+};
+
+export function EmailField<TFieldValues extends FieldValues>({
+  label,
+  name,
+  control,
+}: EmailFieldProps<TFieldValues>) {
   return (
-    <div className="col-span-6 sm:col-span-3">
-      <label
-        htmlFor={htmlFor}
-        className="block text-sm font-medium text-gray-700"
-      >
-        {label}
-      </label>
+    <Controller
+      name={name}
+      control={control}
+      render={({ field }) => (
+        <div className="col-span-6 sm:col-span-3">
+          <label className="block text-sm font-medium text-gray-700">
+            {label}
+          </label>
 
-      <input
-        type="email"
-        id={htmlFor}
-        className="mt-1 p-3 border w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
-        ref={ref}
-      />
-    </div>
+          <input
+            className="mt-1 p-3 border w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+            {...field}
+          />
+        </div>
+      )}
+    />
   );
-});
+}
