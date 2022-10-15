@@ -39,6 +39,9 @@ export function LoginForm() {
           });
         }
       },
+      onSettled() {
+        reset();
+      },
     });
   };
 
@@ -48,7 +51,6 @@ export function LoginForm() {
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    reset();
     handleSubmit(onSubmit)(e);
   };
 
