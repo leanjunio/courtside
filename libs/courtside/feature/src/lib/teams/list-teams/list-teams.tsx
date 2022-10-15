@@ -5,6 +5,7 @@ import {
   EmptyState,
   LoadingSpinner,
   PageWrapper,
+  TextField
 } from '@courtside/ui';
 import { useSnackbar } from 'notistack';
 import { useState } from 'react';
@@ -40,7 +41,11 @@ export function ListTeams() {
           setOpen={setModal}
           description="Enter your team's details"
           title="Create a Team"
-        />
+        >
+          <form>
+            <input />
+          </form>
+        </BasicModal>
         {output}
       </div>
       <div className="relative">

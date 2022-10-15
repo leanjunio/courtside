@@ -6,6 +6,7 @@ type BasicModalProps = {
   description: string;
   isOpen: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  children: React.ReactNode;
 };
 
 export function BasicModal({
@@ -13,6 +14,7 @@ export function BasicModal({
   description,
   isOpen,
   setOpen,
+  children,
 }: BasicModalProps) {
   return (
     <Transition.Root show={isOpen} as={Fragment}>
@@ -57,6 +59,7 @@ export function BasicModal({
                       <div className="mt-2">
                         <p className="text-sm text-gray-500">{description}</p>
                       </div>
+                      {children}
                     </div>
                   </div>
                 </div>
