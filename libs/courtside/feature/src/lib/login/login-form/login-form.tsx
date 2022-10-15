@@ -63,11 +63,7 @@ export function LoginForm() {
         className="mt-8 grid grid-cols-6 gap-6"
       >
         <EmailField name="email" control={control} label="Email" />
-        <PasswordField
-          htmlFor="Password"
-          label="Password"
-          {...register('password')}
-        />
+        <PasswordField control={control} name="password" label="Password" />
 
         <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
           <button

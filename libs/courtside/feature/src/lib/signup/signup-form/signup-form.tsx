@@ -46,18 +46,14 @@ export function SignupForm() {
       </div>
 
       <div className="col-span-6 sm:col-span-3">
-        <PasswordField
-          htmlFor="Password"
-          label="Password"
-          {...register('password')}
-        />
+        <PasswordField control={control} name="password" label="Password" />
       </div>
 
       <div className="col-span-6 sm:col-span-3">
         <PasswordField
-          htmlFor="PasswordConfirmation"
-          label="Confirm Password"
-          {...register('passwordConfirmation')}
+          control={control}
+          name="passwordConfirmation"
+          label="Password Confirmation"
         />
       </div>
 
