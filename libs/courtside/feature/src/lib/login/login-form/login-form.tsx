@@ -46,13 +46,14 @@ export function LoginForm() {
     navigate(-1);
   };
 
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    reset();
+    handleSubmit(onSubmit)(e);
+  };
+
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit, (errors) => {
-        console.log({ errors });
-      })}
-      className="mt-8 grid grid-cols-6 gap-6"
-    >
+    <form onSubmit={handleFormSubmit} className="mt-8 grid grid-cols-6 gap-6">
       <EmailField name="email" control={control} label="Email" />
       <PasswordField control={control} name="password" label="Password" />
 
