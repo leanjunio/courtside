@@ -23,10 +23,11 @@ export class AuthService {
     return null;
   }
 
-  async login(user: User) {
+  async login({ email, firstName, lastName }: User) {
+    const parsedUserDocument = { email, firstName, lastName };
     return {
-      access_token: this.jwtService.sign({ ...user }),
-      ...user,
+      access_token: this.jwtService.sign(parsedUserDocument),
+      ...parsedUserDocument,
     };
   }
 }
