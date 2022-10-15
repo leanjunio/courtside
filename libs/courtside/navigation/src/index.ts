@@ -1,1 +1,1 @@
-export * from './lib/courtside-navigation';
+export * from './lib';
