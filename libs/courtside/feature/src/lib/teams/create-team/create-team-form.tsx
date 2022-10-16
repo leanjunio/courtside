@@ -57,16 +57,17 @@ export function CreateTeamForm({
   };
 
   return (
-    <BasicModal
-      isOpen={isOpen}
-      onCancel={onCancel}
-      description="Enter your team's details"
-      title="Create a Team"
-      onSubmit={onSubmit}
-    >
-      <form onSubmit={handleFormSubmit} className="mt-8 grid grid-cols-6 gap-6">
+    <form onSubmit={handleFormSubmit} className="mt-8 grid grid-cols-6 gap-6">
+      <BasicModal
+        isOpen={isOpen}
+        onCancel={onCancel}
+        description="Enter your team's details"
+        title="Create a Team"
+        onSubmit={onSubmit}
+      >
         <TextField name="name" control={control} label="Team Name" />
-      </form>
-    </BasicModal>
+        <TextField name="name" control={control} label="Team Name" />
+      </BasicModal>
+    </form>
   );
 }
