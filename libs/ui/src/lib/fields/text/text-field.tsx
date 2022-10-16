@@ -18,7 +18,7 @@ export function TextField<TFieldValues extends FieldValues>({
       control={control}
       render={({ field, fieldState: { error } }) => {
         return (
-          <div className="col-span-6 sm:col-span-3">
+          <div className="col-span-6 sm:col-span-3 my-4">
             <label className="block text-base font-medium text-gray-700">
               {label}
             </label>
