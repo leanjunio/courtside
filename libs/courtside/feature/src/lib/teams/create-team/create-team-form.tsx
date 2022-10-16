@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 
 type CreateTeamFormProps = {
   isOpen: boolean;
-  onSubmit: () => void;
+  onSubmit: (data: CreateTeamDto) => void;
   onCancel: () => void;
 };
 export function CreateTeamForm({
@@ -52,22 +52,22 @@ export function CreateTeamForm({
   // };
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    console.log('trigger');
     e.preventDefault();
     handleSubmit(onSubmit)(e);
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <BasicModal
-        isOpen={isOpen}
-        onCancel={onCancel}
-        description="Enter your team's details"
-        title="Create a Team"
-        onSubmit={onSubmit}
-      >
+    <BasicModal
+      isOpen={isOpen}
+      onCancel={onCancel}
+      description="Enter your team's details"
+      title="Create a Team"
+    >
+      <form id="create team form" onSubmit={handleFormSubmit}>
         <TextField name="name" control={control} label="Team Name" />
         <TextField name="name" control={control} label="Team Name" />
-      </BasicModal>
-    </form>
+      </form>
+    </BasicModal>
   );
 }

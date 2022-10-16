@@ -1,4 +1,4 @@
-import { baseTeamQueries } from '@courtside/data-access';
+import { baseTeamQueries, CreateTeamDto } from '@courtside/data-access';
 import {
   BasicModal,
   CircleButton,
@@ -34,7 +34,7 @@ export function ListTeams() {
     }
   }
 
-  const onCreateTeam = () => {
+  const onCreateTeam = (data: CreateTeamDto) => {
     console.log('create team');
     setIsOpen(false);
   };
