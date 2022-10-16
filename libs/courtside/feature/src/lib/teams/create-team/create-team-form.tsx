@@ -5,7 +5,6 @@ import {
 } from '@courtside/data-access';
 import { BasicModal, TextField } from '@courtside/ui';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useQueryClient } from '@tanstack/react-query';
 import { useSnackbar } from 'notistack';
 import { useForm } from 'react-hook-form';
 
