@@ -57,7 +57,7 @@ export function CreateTeamForm({
   };
 
   return (
-    <form onSubmit={handleFormSubmit} className="mt-8 grid grid-cols-6 gap-6">
+    <form onSubmit={handleFormSubmit}>
       <BasicModal
         isOpen={isOpen}
         onCancel={onCancel}
