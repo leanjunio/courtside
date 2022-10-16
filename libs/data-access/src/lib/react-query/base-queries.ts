@@ -3,6 +3,7 @@ import {
   useMutation,
   UseMutationResult,
   useQuery,
+  useQueryClient,
   UseQueryResult,
 } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
@@ -22,7 +23,13 @@ export function createBaseQueries<Entity>(
 ): BaseQueries<Entity> {
   return {
     useCreateOne: () => {
-      return useMutation((data) => requests.createOne(data));
+      const queryClient = useQueryClient();
+      return useMutation((data) => requests.createOne(data), {
+        onSettled: () => {
+          console.log('invalidating query');
+          queryClient.invalidateQueries([queryKey]);
+        },
+      });
     },
     useUpdateOne: () => {
       return useMutation((data) => requests.updateOne(data));

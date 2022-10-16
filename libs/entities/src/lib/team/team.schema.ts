@@ -10,13 +10,12 @@ export class Team {
   name: string;
 
   @Prop({
-    required: true,
-    type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    type: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   })
-  creator: User;
+  creator?: User;
 
   @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }] })
-  members: User[];
+  members?: User[];
 }
 
 export const TeamSchema = SchemaFactory.createForClass(Team);

@@ -3,7 +3,7 @@ import { BaseUserSchema } from '../user';
 
 export const CreateTeamSchema = z.object({
   name: z.string(),
-  creator: BaseUserSchema,
+  creator: BaseUserSchema.optional(),
   members: z.array(BaseUserSchema).optional(),
 });
 

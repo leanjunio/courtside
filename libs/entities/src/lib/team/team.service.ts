@@ -9,7 +9,7 @@ export class TeamService {
   constructor(@InjectModel(Team.name) private teamModel: Model<TeamDocument>) {}
 
   async create(createTeamDto: CreateTeamDto): Promise<Team> {
-    return new this.teamModel(createTeamDto);
+    return new this.teamModel(createTeamDto).save();
   }
 
   async findAll(): Promise<Team[]> {

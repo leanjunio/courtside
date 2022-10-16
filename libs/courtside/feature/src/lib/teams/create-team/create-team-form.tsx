@@ -1,6 +1,12 @@
-import { CreateTeamDto, createTeamSchema } from '@courtside/data-access';
+import {
+  baseTeamQueries,
+  CreateTeamDto,
+  createTeamSchema,
+} from '@courtside/data-access';
 import { BasicModal, TextField } from '@courtside/ui';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useQueryClient } from '@tanstack/react-query';
+import { useSnackbar } from 'notistack';
 import { useForm } from 'react-hook-form';
 
 type CreateTeamFormProps = {
@@ -14,37 +20,26 @@ export function CreateTeamForm({ isOpen, onCancel }: CreateTeamFormProps) {
       name: '',
     },
   });
+  const { enqueueSnackbar } = useSnackbar();
+
+  const { mutate } = baseTeamQueries.useCreateOne();
 
   const onSubmit = (data: CreateTeamDto) => {
-    console.log({ data });
-    onCancel();
-
-    // login.mutate(data, {
-    //   onSuccess({ access_token, email, firstName, lastName }) {
-    //     enqueueSnackbar(`Welcome ${firstName}!`, { variant: 'success' });
-    //     localStorage.setItem('token', access_token);
-    //     loginToState({
-    //       email,
-    //       firstName,
-    //       lastName,
-    //     });
-    //     navigate('/dashboard');
-    //   },
-    //   onError(error) {
-    //     if (error.response?.status === 404) {
-    //       enqueueSnackbar(`Incorrect email or password`, {
-    //         variant: 'error',
-    //       });
-    //     } else {
-    //       enqueueSnackbar('An error occurred while logging in', {
-    //         variant: 'error',
-    //       });
-    //     }
-    //   },
-    //   onSettled() {
-    //     reset();
-    //   },
-    // });
+    mutate(data, {
+      onSuccess() {
+        enqueueSnackbar('Team Created', {
+          variant: 'success',
+        });
+      },
+      onError(error) {
+        console.log(error);
+      },
+      onSettled() {
+        console.log('did this run?');
+        reset();
+        onCancel();
+      },
+    });
   };
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {

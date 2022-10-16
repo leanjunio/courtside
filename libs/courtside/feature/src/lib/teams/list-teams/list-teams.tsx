@@ -30,7 +30,13 @@ export function ListTeams() {
     if (data.length === 0) {
       output = <EmptyState entityName="Team" />;
     } else {
-      data.map((d) => <p>{d.name}</p>);
+      output = (
+        <>
+          {data.map((d) => (
+            <p>{d.name}</p>
+          ))}
+        </>
+      );
     }
   }
 
