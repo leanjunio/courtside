@@ -52,7 +52,6 @@ export function CreateTeamForm({
   // };
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    console.log('trigger');
     e.preventDefault();
     handleSubmit(onSubmit)(e);
   };
