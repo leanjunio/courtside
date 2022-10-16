@@ -35,7 +35,7 @@ export function ListTeams() {
   }
 
   const onCreateTeam = (data: CreateTeamDto) => {
-    console.log('create team');
+    console.log(data);
     setIsOpen(false);
   };
 
