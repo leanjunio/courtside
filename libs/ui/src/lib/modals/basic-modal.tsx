@@ -5,7 +5,8 @@ type BasicModalProps = {
   title: string;
   description: string;
   isOpen: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  onCancel: () => void;
+  onSubmit: () => void;
   children: React.ReactNode;
 };
 
@@ -13,7 +14,8 @@ export function BasicModal({
   title,
   description,
   isOpen,
-  setOpen,
+  onCancel,
+  onSubmit,
   children,
 }: BasicModalProps) {
   return (
@@ -67,14 +69,14 @@ export function BasicModal({
                   <button
                     type="button"
                     className="inline-flex w-full justify-center rounded-md border border-transparent bg-amber-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm"
-                    onClick={() => setOpen(false)}
+                    onClick={onSubmit}
                   >
                     Submit
                   </button>
                   <button
                     type="button"
                     className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                    onClick={() => setOpen(false)}
+                    onClick={onCancel}
                   >
                     Cancel
                   </button>

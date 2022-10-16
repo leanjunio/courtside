@@ -14,7 +14,7 @@ import { CreateTeamForm } from '../create-team';
 export function ListTeams() {
   const { status, data } = baseTeamQueries.useGetAll();
   const { enqueueSnackbar } = useSnackbar();
-  const [modal, setModal] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   if (status === 'error') {
     enqueueSnackbar('Could not fetch teams');
@@ -34,22 +34,28 @@ export function ListTeams() {
     }
   }
 
+  const onCreateTeam = () => {
+    console.log('create team');
+    setIsOpen(false);
+  };
+
+  const onCancel = () => {
+    setIsOpen(false);
+  };
+
   return (
     <PageWrapper title="Teams">
       <div className="flex justify-center items-center h-full">
-        <BasicModal
-          isOpen={modal}
-          setOpen={setModal}
-          description="Enter your team's details"
-          title="Create a Team"
-        >
-          <CreateTeamForm onCancel={() => console.log('cancel')} />
-        </BasicModal>
+        <CreateTeamForm
+          onCancel={onCancel}
+          isOpen={isOpen}
+          onSubmit={onCreateTeam}
+        />
         {output}
       </div>
       <div className="relative">
         <div className="absolute bottom-0 right-0 m-10">
-          <CircleButton label="Create Team" onClick={() => setModal(true)} />
+          <CircleButton label="Create Team" onClick={() => setIsOpen(true)} />
         </div>
       </div>
     </PageWrapper>
