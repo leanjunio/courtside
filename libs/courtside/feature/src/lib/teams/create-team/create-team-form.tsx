@@ -5,14 +5,9 @@ import { useForm } from 'react-hook-form';
 
 type CreateTeamFormProps = {
   isOpen: boolean;
-  onSubmit: (data: CreateTeamDto) => void;
   onCancel: () => void;
 };
-export function CreateTeamForm({
-  isOpen,
-  onSubmit,
-  onCancel,
-}: CreateTeamFormProps) {
+export function CreateTeamForm({ isOpen, onCancel }: CreateTeamFormProps) {
   const { reset, handleSubmit, control } = useForm<CreateTeamDto>({
     resolver: zodResolver(createTeamSchema),
     defaultValues: {
@@ -20,36 +15,37 @@ export function CreateTeamForm({
     },
   });
 
-  // const onSubmit = (data: CreateTeamDto) => {
-  //   console.log({ data });
+  const onSubmit = (data: CreateTeamDto) => {
+    console.log({ data });
+    onCancel();
 
-  //   // login.mutate(data, {
-  //   //   onSuccess({ access_token, email, firstName, lastName }) {
-  //   //     enqueueSnackbar(`Welcome ${firstName}!`, { variant: 'success' });
-  //   //     localStorage.setItem('token', access_token);
-  //   //     loginToState({
-  //   //       email,
-  //   //       firstName,
-  //   //       lastName,
-  //   //     });
-  //   //     navigate('/dashboard');
-  //   //   },
-  //   //   onError(error) {
-  //   //     if (error.response?.status === 404) {
-  //   //       enqueueSnackbar(`Incorrect email or password`, {
-  //   //         variant: 'error',
-  //   //       });
-  //   //     } else {
-  //   //       enqueueSnackbar('An error occurred while logging in', {
-  //   //         variant: 'error',
-  //   //       });
-  //   //     }
-  //   //   },
-  //   //   onSettled() {
-  //   //     reset();
-  //   //   },
-  //   // });
-  // };
+    // login.mutate(data, {
+    //   onSuccess({ access_token, email, firstName, lastName }) {
+    //     enqueueSnackbar(`Welcome ${firstName}!`, { variant: 'success' });
+    //     localStorage.setItem('token', access_token);
+    //     loginToState({
+    //       email,
+    //       firstName,
+    //       lastName,
+    //     });
+    //     navigate('/dashboard');
+    //   },
+    //   onError(error) {
+    //     if (error.response?.status === 404) {
+    //       enqueueSnackbar(`Incorrect email or password`, {
+    //         variant: 'error',
+    //       });
+    //     } else {
+    //       enqueueSnackbar('An error occurred while logging in', {
+    //         variant: 'error',
+    //       });
+    //     }
+    //   },
+    //   onSettled() {
+    //     reset();
+    //   },
+    // });
+  };
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

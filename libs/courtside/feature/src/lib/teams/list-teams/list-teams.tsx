@@ -34,11 +34,6 @@ export function ListTeams() {
     }
   }
 
-  const onCreateTeam = (data: CreateTeamDto) => {
-    console.log(data);
-    setIsOpen(false);
-  };
-
   const onCancel = () => {
     setIsOpen(false);
   };
@@ -46,11 +41,7 @@ export function ListTeams() {
   return (
     <PageWrapper title="Teams">
       <div className="flex justify-center items-center h-full">
-        <CreateTeamForm
-          onCancel={onCancel}
-          isOpen={isOpen}
-          onSubmit={onCreateTeam}
-        />
+        <CreateTeamForm onCancel={onCancel} isOpen={isOpen} />
         {output}
       </div>
       <div className="relative">
