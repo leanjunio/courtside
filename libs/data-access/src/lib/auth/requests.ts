@@ -1,4 +1,4 @@
-import { CreateUserDto } from '@courtside/entities';
+import { CreateUserDto } from '@courtside/shared/dtos';
 import { getEnvironmentVariables } from '@courtside/shared/util-environment';
 import axios from 'axios';
 import { LoginUserDto } from '../users';

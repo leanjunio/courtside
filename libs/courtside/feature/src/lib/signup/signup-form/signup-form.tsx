@@ -1,5 +1,5 @@
 import { signupSchema, useSignup } from '@courtside/data-access';
-import { CreateUserDto } from '@courtside/entities';
+import { CreateUserDto } from '@courtside/shared/dtos';
 import { EmailField, PasswordField, TextField } from '@courtside/ui';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSnackbar } from 'notistack';

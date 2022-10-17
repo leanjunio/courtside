@@ -1,8 +1,9 @@
+import { CreateUserDto } from '@courtside/shared/dtos';
 import { getEnvironmentVariables } from '@courtside/shared/util-environment';
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcryptjs';
-import { CreateUserDto, User, UserService } from '../user';
+import { User, UserService } from '../user';
 
 @Injectable()
 export class AuthService {

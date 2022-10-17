@@ -1,8 +1,8 @@
+import { CreateUserDto } from '@courtside/shared/dtos';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import * as bcrypt from 'bcryptjs';
 import { Model } from 'mongoose';
-import { CreateUserDto } from './user';
 import { User, UserDocument } from './user.schema';
 
 @Injectable()

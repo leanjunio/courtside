@@ -1,4 +1,5 @@
-import { CreateUserDto, User } from '@courtside/entities';
+import { User } from '@courtside/entities';
+import { CreateUserDto } from '@courtside/shared/dtos';
 import { useMutation, UseMutationResult } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 import { LoginUserDto } from '../users';
