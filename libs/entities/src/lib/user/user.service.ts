@@ -28,6 +28,12 @@ export class UserService {
   }
 
   async verifyAuthentication(email: string, password: string) {
-    return this.userModel.findOne({ email, password }).exec();
+    const user = await this.userModel.findOne({ email, password }).exec();
+
+    if (user?.password) {
+      bcrypt.compareSync(password, user?.password);
+    }
+
+    return user;
   }
 }
