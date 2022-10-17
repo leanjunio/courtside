@@ -1,4 +1,4 @@
-import { BaseUserDto } from '@courtside/entities';
+import { BaseUserDto } from '@courtside/shared/dtos';
 import { useCurrentUser } from '@courtside/state';
 import { MdOutlineAssignment, MdOutlineAssignmentInd } from 'react-icons/md';
 import { Link, useNavigate } from 'react-router-dom';

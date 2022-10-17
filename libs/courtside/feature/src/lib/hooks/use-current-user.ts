@@ -1,4 +1,4 @@
-import { BaseUserDto } from '@courtside/entities';
+import { BaseUserDto } from '@courtside/shared/dtos';
 import create from 'zustand';
 import { persist } from 'zustand/middleware';
 
