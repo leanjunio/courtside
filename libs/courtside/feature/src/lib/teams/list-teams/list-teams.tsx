@@ -20,24 +20,20 @@ export function ListTeams() {
     enqueueSnackbar('Could not fetch teams');
   }
 
-  let output: JSX.Element = <></>;
+  let output: JSX.Element = <EmptyState entityName="Team" />;
 
   if (status === 'loading') {
     output = <LoadingSpinner />;
   }
 
-  if (status === 'success') {
-    if (data.length === 0) {
-      output = <EmptyState entityName="Team" />;
-    } else {
-      output = (
-        <>
-          {data.map((d) => (
-            <p>{d.name}</p>
-          ))}
-        </>
-      );
-    }
+  if (status === 'success' && data.length > 0) {
+    output = (
+      <>
+        {data.map((d) => (
+          <p>{d.name}</p>
+        ))}
+      </>
+    );
   }
 
   const onCancel = () => {
