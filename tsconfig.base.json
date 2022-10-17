@@ -22,6 +22,7 @@
       ],
       "@courtside/data-access": ["libs/data-access/src/index.ts"],
       "@courtside/entities": ["libs/entities/src/index.ts"],
+      "@courtside/shared/dtos": ["libs/shared/dtos/src/index.ts"],
       "@courtside/shared/util-environment": [
         "libs/shared/util-environment/src/index.ts"
       ],
