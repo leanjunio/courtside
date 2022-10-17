@@ -1,5 +1,7 @@
+import { getEnvironmentVariables } from '@courtside/shared/util-environment';
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import * as bcrypt from 'bcryptjs';
 import { CreateUserDto, User, UserService } from '../user';
 
 @Injectable()
@@ -10,7 +12,11 @@ export class AuthService {
   ) {}
 
   async signup(createUserDto: CreateUserDto) {
-    return this.userService.create(createUserDto);
+    const saltCount = +getEnvironmentVariables('SALT_COUNT');
+    const salt = bcrypt.genSaltSync(saltCount);
+    const hash = bcrypt.hashSync(createUserDto.password, salt);
+    const securedUser = { ...createUserDto, password: hash };
+    return this.userService.create(securedUser);
   }
 
   async validateUser(email: string, password: string) {
