@@ -31,9 +31,13 @@ export class UserService {
     const user = await this.userModel.findOne({ email }).exec();
 
     if (user?.password) {
-      bcrypt.compareSync(password, user?.password);
+      const isMatching = bcrypt.compareSync(password, user?.password);
+
+      if (isMatching) {
+        return user;
+      }
     }
 
-    return user;
+    return null;
   }
 }
