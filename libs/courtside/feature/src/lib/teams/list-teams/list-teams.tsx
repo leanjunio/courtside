@@ -1,4 +1,4 @@
-import { baseTeamQueries, CreateTeamDto } from '@courtside/data-access';
+import { baseTeamQueries } from '@courtside/data-access';
 import {
   BasicModal,
   CircleButton,

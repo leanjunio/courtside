@@ -1,8 +1,5 @@
-import {
-  baseTeamQueries,
-  CreateTeamDto,
-  createTeamSchema,
-} from '@courtside/data-access';
+import { baseTeamQueries } from '@courtside/data-access';
+import { CreateTeamDto, createTeamSchema } from '@courtside/shared/dtos';
 import { BasicModal, TextField } from '@courtside/ui';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useSnackbar } from 'notistack';
