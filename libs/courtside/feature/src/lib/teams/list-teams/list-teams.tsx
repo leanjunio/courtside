@@ -1,11 +1,9 @@
 import { baseTeamQueries } from '@courtside/data-access';
 import {
-  BasicModal,
   CircleButton,
   EmptyState,
   LoadingSpinner,
   PageWrapper,
-  TextField,
 } from '@courtside/ui';
 import { useSnackbar } from 'notistack';
 import { useState } from 'react';
