@@ -1,7 +1,7 @@
+import { CreateTeamDto } from '@courtside/shared/dtos';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CreateTeamDto } from './team';
 import { Team, TeamDocument } from './team.schema';
 
 @Injectable()

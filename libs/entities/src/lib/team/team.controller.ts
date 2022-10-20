@@ -1,6 +1,6 @@
+import { CreateTeamDto } from '@courtside/shared/dtos';
 import { MongoExceptionFilter } from '@courtside/shared/util-server-exceptions';
 import { Body, Controller, Get, Post, UseFilters } from '@nestjs/common';
-import { CreateTeamDto } from './team';
 import { TeamService } from './team.service';
 
 @Controller('teams')
