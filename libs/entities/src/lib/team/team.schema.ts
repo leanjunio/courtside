@@ -13,6 +13,8 @@ export class Team {
     type: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   })
   creator?: User;
+  @Prop({ required: true })
+  description: string;
 
   @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }] })
   members?: User[];

@@ -52,7 +52,7 @@ export function CreateTeamForm({ isOpen, onCancel }: CreateTeamFormProps) {
     >
       <form id="create team form" onSubmit={handleFormSubmit}>
         <TextField name="name" control={control} label="Team Name" />
-        <TextField name="name" control={control} label="Team Name" />
+        <TextField name="description" control={control} label="Description" />
       </form>
     </BasicModal>
   );
