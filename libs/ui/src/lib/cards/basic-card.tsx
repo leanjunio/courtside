@@ -7,7 +7,7 @@ export type BasicCardProps = {
 export function BasicCard({ main, description, count }: BasicCardProps) {
   return (
     <a
-      className="relative block rounded-xl border border-gray-100 p-8 shadow-xl"
+      className="relative block rounded-xl border border-gray-100 p-8 shadow-xl w-full"
       href=""
     >
       <span className="absolute right-4 top-4 rounded-full bg-green-100 px-3 py-1.5 text-xs font-medium text-green-600">

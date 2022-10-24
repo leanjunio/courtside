@@ -1,5 +1,6 @@
 import { baseTeamQueries } from '@courtside/data-access';
 import {
+  BasicCard,
   CircleButton,
   EmptyState,
   LoadingSpinner,
@@ -26,11 +27,15 @@ export function ListTeams() {
 
   if (status === 'success' && data.length > 0) {
     output = (
-      <>
+      <div className="flex flex-col">
         {data.map((d) => (
-          <p>{d.name}</p>
+          <BasicCard
+            count={d.members?.length ?? 0}
+            main={d.name}
+            description={d.description}
+          />
         ))}
-      </>
+      </div>
     );
   }
 
@@ -40,7 +45,7 @@ export function ListTeams() {
 
   return (
     <PageWrapper title="Teams">
-      <div className="flex justify-center items-center h-full">
+      <div className="flex justify-center items-center h-full w-full">
         <CreateTeamForm onCancel={onCancel} isOpen={isOpen} />
         {output}
       </div>
